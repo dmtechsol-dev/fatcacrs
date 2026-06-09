@@ -1,0 +1,20 @@
+{
+  "sendingCompanyIn": "DEMO123",
+  "reportingFiTin": "DM-DEMO-TIN",
+  "reportingFiTinIssuedBy": "DM",
+  "reportingFiName": "Example Reporting Financial Institution",
+  "reportingFiAddress": "1 Independence Street",
+  "reportingFiCity": "Roseau",
+  "reportingFiCountry": "DM",
+  "transmittingCountry": "DM",
+  "receivingCountry": "DM",
+  "reportingPeriod": "2025-12-31",
+  "currency": "USD",
+  "messageTypeIndic": "CRS701",
+  "mode": "test",
+  "contact": "Local demonstration only",
+  "warning": "Generated from the attached workbook for local application verification.",
+  "defaultPaymentType": "CRS502",
+  "includeZeroPayments": false,
+  "interpretTrueAsClosed": true
+}

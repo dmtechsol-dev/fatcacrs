@@ -1,0 +1,48 @@
+from lxml import etree
+
+from backend.config import NS_SFA_FTC
+from backend.models import AccountRecord
+from backend.xml_builder import build_xml
+
+
+def sample_record(row_number: int, account: str):
+    return AccountRecord(
+        row_number=row_number,
+        account_number=account,
+        first_name="Ada",
+        surname="Lovelace",
+        date_of_birth="1815-12-10",
+        address="1 Analytical Engine Way",
+        country="GB",
+        tin="GB-TIN-1",
+        account_status=True,
+        payment="15.25",
+        account_balance="1000",
+    )
+
+
+def test_xml_is_well_formed_and_uses_expected_elements(settings):
+    content, message_ref = build_xml([sample_record(2, "A-1")], settings)
+    root = etree.fromstring(content)
+    assert root.tag == "{urn:fatcacrs:ties:v2}FATCA_CRS"
+    assert root.get("version") == "2.2"
+    assert message_ref.startswith("DM2025DEMO123")
+    assert not root.xpath("//*[local-name()='Payment2']")
+    assert root.xpath("count(//*[local-name()='Payment'])") == 1.0
+    account_number = root.find(f".//{{{NS_SFA_FTC}}}AccountNumber")
+    assert account_number is not None
+    assert account_number.get("ClosedAccount") == "true"
+
+
+def test_doc_ref_ids_are_unique(settings):
+    content, _ = build_xml(
+        [sample_record(2, "A-1"), sample_record(3, "A-1")],
+        settings,
+    )
+    root = etree.fromstring(content)
+    refs = [
+        element.text
+        for element in root.xpath("//*[local-name()='DocRefId']")
+    ]
+    assert len(refs) == len(set(refs))
+    assert all(len(ref) < 200 for ref in refs if ref)

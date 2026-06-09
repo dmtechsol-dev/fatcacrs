@@ -1,0 +1,5128 @@
+{
+  "sourceWorkbook": "Copy of CRS Reportable Accounts  - Year 2025 - IT Officer.xlsx",
+  "messageRefId": "DM2025DEMO12320260609191819943410",
+  "sampleXmlRecordCount": 3,
+  "summary": {
+    "totalRecords": 551,
+    "validRecords": 548,
+    "errorRecords": 3,
+    "warningRecords": 551,
+    "countryBreakdown": {
+      "-": 2,
+      "BB": 5,
+      "BE": 1,
+      "CA": 97,
+      "CH": 1,
+      "CZ": 1,
+      "DE": 2,
+      "DK": 3,
+      "FR": 201,
+      "GB": 192,
+      "JM": 3,
+      "KN": 1,
+      "LC": 3,
+      "NL": 33,
+      "SE": 3,
+      "SL": 3
+    },
+    "closedAccounts": 233,
+    "openAccounts": 318,
+    "missingTin": 446,
+    "missingDob": 6,
+    "missingBalance": 1
+  },
+  "schemaValidation": {
+    "status": "incomplete",
+    "valid": false,
+    "fullValidation": false,
+    "message": "Full XSD validation cannot complete until the missing schema import(s) are provided.",
+    "errors": [],
+    "missingImports": [
+      "isofatcatypes_v1.1.xsd"
+    ]
+  },
+  "records": [
+    {
+      "rowNumber": 2,
+      "accountNumber": "900",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 3,
+      "accountNumber": "1742",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 4,
+      "accountNumber": "1882",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 5,
+      "accountNumber": "2450",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 6,
+      "accountNumber": "2716",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 7,
+      "accountNumber": "3110",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 8,
+      "accountNumber": "3151",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 9,
+      "accountNumber": "3680",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 10,
+      "accountNumber": "3698",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 11,
+      "accountNumber": "3755",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 12,
+      "accountNumber": "4662",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 13,
+      "accountNumber": "4902",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 14,
+      "accountNumber": "5248",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 15,
+      "accountNumber": "5305",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 16,
+      "accountNumber": "6170",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 17,
+      "accountNumber": "6378",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 18,
+      "accountNumber": "6907",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 19,
+      "accountNumber": "8218",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 20,
+      "accountNumber": "8333",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 21,
+      "accountNumber": "8564",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 22,
+      "accountNumber": "8663",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 23,
+      "accountNumber": "8689",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 24,
+      "accountNumber": "8762",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 25,
+      "accountNumber": "9620",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 26,
+      "accountNumber": "9729",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 27,
+      "accountNumber": "9869",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 28,
+      "accountNumber": "9943",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 29,
+      "accountNumber": "10214",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 30,
+      "accountNumber": "11055",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 31,
+      "accountNumber": "11162",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 32,
+      "accountNumber": "12376",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 33,
+      "accountNumber": "13028",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 34,
+      "accountNumber": "13432",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 35,
+      "accountNumber": "13689",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 36,
+      "accountNumber": "14125",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 37,
+      "accountNumber": "14208",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 38,
+      "accountNumber": "14323",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 39,
+      "accountNumber": "14752",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 40,
+      "accountNumber": "14760",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 41,
+      "accountNumber": "15114",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 42,
+      "accountNumber": "15304",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 43,
+      "accountNumber": "15676",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 44,
+      "accountNumber": "15965",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 45,
+      "accountNumber": "16617",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 46,
+      "accountNumber": "17896",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 47,
+      "accountNumber": "18928",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 48,
+      "accountNumber": "20346",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 49,
+      "accountNumber": "20866",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 50,
+      "accountNumber": "21088",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 51,
+      "accountNumber": "21260",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 52,
+      "accountNumber": "21898",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 53,
+      "accountNumber": "22466",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 54,
+      "accountNumber": "22664",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 55,
+      "accountNumber": "23142",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 56,
+      "accountNumber": "25501",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 57,
+      "accountNumber": "25816",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 58,
+      "accountNumber": "25980",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 59,
+      "accountNumber": "26152",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 60,
+      "accountNumber": "26269",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 61,
+      "accountNumber": "27200",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 62,
+      "accountNumber": "27275",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 63,
+      "accountNumber": "27333",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 64,
+      "accountNumber": "28554",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 65,
+      "accountNumber": "29008",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 66,
+      "accountNumber": "29172",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 67,
+      "accountNumber": "31285",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 68,
+      "accountNumber": "31376",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 69,
+      "accountNumber": "31566",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 70,
+      "accountNumber": "31954",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 71,
+      "accountNumber": "32176",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 72,
+      "accountNumber": "33158",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 73,
+      "accountNumber": "34693",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 74,
+      "accountNumber": "34701",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 75,
+      "accountNumber": "34768",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 76,
+      "accountNumber": "35179",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 77,
+      "accountNumber": "35393",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 78,
+      "accountNumber": "35799",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 79,
+      "accountNumber": "36151",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 80,
+      "accountNumber": "37399",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 81,
+      "accountNumber": "37548",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 82,
+      "accountNumber": "37571",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 83,
+      "accountNumber": "37738",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 84,
+      "accountNumber": "39312",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Account balance is zero.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 85,
+      "accountNumber": "39718",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 86,
+      "accountNumber": "40450",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 87,
+      "accountNumber": "40898",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 88,
+      "accountNumber": "41391",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 89,
+      "accountNumber": "41649",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 90,
+      "accountNumber": "42001",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 91,
+      "accountNumber": "42258",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 92,
+      "accountNumber": "42357",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 93,
+      "accountNumber": "44478",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 94,
+      "accountNumber": "45145",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 95,
+      "accountNumber": "45251",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 96,
+      "accountNumber": "45251",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 97,
+      "accountNumber": "45707",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 98,
+      "accountNumber": "45996",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 99,
+      "accountNumber": "46507",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 100,
+      "accountNumber": "46861",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 101,
+      "accountNumber": "47810",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 102,
+      "accountNumber": "47992",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 103,
+      "accountNumber": "48123",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 104,
+      "accountNumber": "48263",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 105,
+      "accountNumber": "48511",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 106,
+      "accountNumber": "48792",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 107,
+      "accountNumber": "48891",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 108,
+      "accountNumber": "49303",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 109,
+      "accountNumber": "49436",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 110,
+      "accountNumber": "50137",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 111,
+      "accountNumber": "50285",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 112,
+      "accountNumber": "50863",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 113,
+      "accountNumber": "50871",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 114,
+      "accountNumber": "52968",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 115,
+      "accountNumber": "53073",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 116,
+      "accountNumber": "53776",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 117,
+      "accountNumber": "55094",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 118,
+      "accountNumber": "55961",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 119,
+      "accountNumber": "56563",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 120,
+      "accountNumber": "56654",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 121,
+      "accountNumber": "56712",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 122,
+      "accountNumber": "56746",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 123,
+      "accountNumber": "57108",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 124,
+      "accountNumber": "57561",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 125,
+      "accountNumber": "58108",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 126,
+      "accountNumber": "58142",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 127,
+      "accountNumber": "58263",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 128,
+      "accountNumber": "58495",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 129,
+      "accountNumber": "59513",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 130,
+      "accountNumber": "59814",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 131,
+      "accountNumber": "59937",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 132,
+      "accountNumber": "60720",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 133,
+      "accountNumber": "62134",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 134,
+      "accountNumber": "62324",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 135,
+      "accountNumber": "62535",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 136,
+      "accountNumber": "92445",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 137,
+      "accountNumber": "92974",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 138,
+      "accountNumber": "94453",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Date of birth is missing.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 139,
+      "accountNumber": "94855",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 140,
+      "accountNumber": "96174",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 141,
+      "accountNumber": "97133",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 142,
+      "accountNumber": "98705",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 143,
+      "accountNumber": "100380",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 144,
+      "accountNumber": "106633",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 145,
+      "accountNumber": "106800",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 146,
+      "accountNumber": "106829",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 147,
+      "accountNumber": "106889",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 148,
+      "accountNumber": "106925",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 149,
+      "accountNumber": "106970",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 150,
+      "accountNumber": "106971",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 151,
+      "accountNumber": "107016",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 152,
+      "accountNumber": "107068",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 153,
+      "accountNumber": "107417",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 154,
+      "accountNumber": "107425",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 155,
+      "accountNumber": "107820",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 156,
+      "accountNumber": "107840",
+      "errors": [
+        "Missing account balance."
+      ],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 157,
+      "accountNumber": "107846",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 158,
+      "accountNumber": "108068",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 159,
+      "accountNumber": "108115",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 160,
+      "accountNumber": "108226",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 161,
+      "accountNumber": "108231",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 162,
+      "accountNumber": "108381",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 163,
+      "accountNumber": "108436",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 164,
+      "accountNumber": "108445",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Date of birth is missing.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 165,
+      "accountNumber": "108445",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 166,
+      "accountNumber": "108482",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 167,
+      "accountNumber": "108524",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 168,
+      "accountNumber": "108539",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 169,
+      "accountNumber": "108638",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 170,
+      "accountNumber": "108689",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 171,
+      "accountNumber": "108711",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 172,
+      "accountNumber": "108720",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 173,
+      "accountNumber": "108771",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 174,
+      "accountNumber": "108806",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 175,
+      "accountNumber": "108916",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 176,
+      "accountNumber": "108919",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 177,
+      "accountNumber": "109007",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 178,
+      "accountNumber": "109051",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 179,
+      "accountNumber": "109053",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 180,
+      "accountNumber": "109111",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 181,
+      "accountNumber": "109315",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 182,
+      "accountNumber": "109340",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 183,
+      "accountNumber": "109367",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 184,
+      "accountNumber": "109379",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 185,
+      "accountNumber": "109381",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 186,
+      "accountNumber": "109387",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 187,
+      "accountNumber": "109389",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 188,
+      "accountNumber": "109476",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 189,
+      "accountNumber": "109496",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 190,
+      "accountNumber": "109511",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 191,
+      "accountNumber": "109551",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 192,
+      "accountNumber": "109575",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 193,
+      "accountNumber": "109598",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 194,
+      "accountNumber": "109600",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 195,
+      "accountNumber": "109610",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 196,
+      "accountNumber": "109621",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 197,
+      "accountNumber": "109623",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 198,
+      "accountNumber": "109629",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 199,
+      "accountNumber": "109638",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 200,
+      "accountNumber": "109773",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 201,
+      "accountNumber": "109826",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 202,
+      "accountNumber": "109890",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 203,
+      "accountNumber": "109967",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 204,
+      "accountNumber": "110003",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 205,
+      "accountNumber": "110031",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 206,
+      "accountNumber": "110046",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 207,
+      "accountNumber": "110054",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 208,
+      "accountNumber": "110059",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 209,
+      "accountNumber": "110183",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 210,
+      "accountNumber": "110207",
+      "errors": [
+        "Country code '-' is not valid."
+      ],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Date of birth is missing.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 211,
+      "accountNumber": "110246",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 212,
+      "accountNumber": "110368",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 213,
+      "accountNumber": "110374",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 214,
+      "accountNumber": "110374",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 215,
+      "accountNumber": "110385",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 216,
+      "accountNumber": "110393",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 217,
+      "accountNumber": "110403",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 218,
+      "accountNumber": "110442",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 219,
+      "accountNumber": "110580",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 220,
+      "accountNumber": "110580",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 221,
+      "accountNumber": "110586",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 222,
+      "accountNumber": "110663",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 223,
+      "accountNumber": "110665",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 224,
+      "accountNumber": "110670",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 225,
+      "accountNumber": "110679",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 226,
+      "accountNumber": "110770",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 227,
+      "accountNumber": "110772",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 228,
+      "accountNumber": "110815",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 229,
+      "accountNumber": "110863",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 230,
+      "accountNumber": "110977",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 231,
+      "accountNumber": "110992",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 232,
+      "accountNumber": "111016",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 233,
+      "accountNumber": "111042",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 234,
+      "accountNumber": "111244",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 235,
+      "accountNumber": "111249",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 236,
+      "accountNumber": "111264",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 237,
+      "accountNumber": "111325",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 238,
+      "accountNumber": "111495",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 239,
+      "accountNumber": "111523",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 240,
+      "accountNumber": "111569",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Account balance is zero.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 241,
+      "accountNumber": "111575",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 242,
+      "accountNumber": "111610",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 243,
+      "accountNumber": "111612",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 244,
+      "accountNumber": "111715",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 245,
+      "accountNumber": "111737",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 246,
+      "accountNumber": "111752",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 247,
+      "accountNumber": "111784",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 248,
+      "accountNumber": "111916",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 249,
+      "accountNumber": "111916",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 250,
+      "accountNumber": "111941",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 251,
+      "accountNumber": "111983",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 252,
+      "accountNumber": "112041",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 253,
+      "accountNumber": "112134",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 254,
+      "accountNumber": "112237",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 255,
+      "accountNumber": "112316",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 256,
+      "accountNumber": "112415",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 257,
+      "accountNumber": "112481",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 258,
+      "accountNumber": "112607",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 259,
+      "accountNumber": "112703",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 260,
+      "accountNumber": "112822",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 261,
+      "accountNumber": "112900",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 262,
+      "accountNumber": "112985",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 263,
+      "accountNumber": "113015",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 264,
+      "accountNumber": "113033",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 265,
+      "accountNumber": "113119",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 266,
+      "accountNumber": "113123",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 267,
+      "accountNumber": "113173",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 268,
+      "accountNumber": "113213",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 269,
+      "accountNumber": "113217",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 270,
+      "accountNumber": "113221",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 271,
+      "accountNumber": "113223",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 272,
+      "accountNumber": "113233",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 273,
+      "accountNumber": "113324",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 274,
+      "accountNumber": "113458",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 275,
+      "accountNumber": "113461",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 276,
+      "accountNumber": "113464",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 277,
+      "accountNumber": "113466",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 278,
+      "accountNumber": "113467",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 279,
+      "accountNumber": "113470",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 280,
+      "accountNumber": "113492",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 281,
+      "accountNumber": "113533",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 282,
+      "accountNumber": "113535",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 283,
+      "accountNumber": "113541",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 284,
+      "accountNumber": "113638",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 285,
+      "accountNumber": "113643",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 286,
+      "accountNumber": "113653",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 287,
+      "accountNumber": "113670",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 288,
+      "accountNumber": "113674",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 289,
+      "accountNumber": "113689",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 290,
+      "accountNumber": "113761",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 291,
+      "accountNumber": "113806",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 292,
+      "accountNumber": "113826",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 293,
+      "accountNumber": "113833",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 294,
+      "accountNumber": "113897",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 295,
+      "accountNumber": "113905",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Date of birth is missing.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 296,
+      "accountNumber": "113934",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 297,
+      "accountNumber": "113978",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Account balance is zero.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 298,
+      "accountNumber": "114006",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 299,
+      "accountNumber": "114014",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 300,
+      "accountNumber": "114046",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 301,
+      "accountNumber": "114074",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 302,
+      "accountNumber": "114075",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 303,
+      "accountNumber": "114083",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 304,
+      "accountNumber": "114162",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 305,
+      "accountNumber": "114167",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 306,
+      "accountNumber": "114175",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 307,
+      "accountNumber": "114249",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 308,
+      "accountNumber": "114286",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 309,
+      "accountNumber": "114297",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 310,
+      "accountNumber": "114316",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 311,
+      "accountNumber": "114331",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 312,
+      "accountNumber": "114340",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 313,
+      "accountNumber": "114412",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 314,
+      "accountNumber": "114448",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 315,
+      "accountNumber": "114493",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 316,
+      "accountNumber": "114571",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 317,
+      "accountNumber": "114596",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 318,
+      "accountNumber": "114633",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 319,
+      "accountNumber": "114636",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 320,
+      "accountNumber": "114681",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 321,
+      "accountNumber": "114695",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Date of birth is missing.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 322,
+      "accountNumber": "114737",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 323,
+      "accountNumber": "114757",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 324,
+      "accountNumber": "114787",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 325,
+      "accountNumber": "114795",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 326,
+      "accountNumber": "114797",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 327,
+      "accountNumber": "114804",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Date of birth is missing.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 328,
+      "accountNumber": "114806",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 329,
+      "accountNumber": "114811",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 330,
+      "accountNumber": "114824",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 331,
+      "accountNumber": "114825",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 332,
+      "accountNumber": "114838",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 333,
+      "accountNumber": "114845",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 334,
+      "accountNumber": "114864",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 335,
+      "accountNumber": "114882",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 336,
+      "accountNumber": "114906",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 337,
+      "accountNumber": "114907",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 338,
+      "accountNumber": "114911",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 339,
+      "accountNumber": "114920",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 340,
+      "accountNumber": "114966",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 341,
+      "accountNumber": "114977",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 342,
+      "accountNumber": "114978",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 343,
+      "accountNumber": "114981",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 344,
+      "accountNumber": "114994",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 345,
+      "accountNumber": "115020",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 346,
+      "accountNumber": "115059",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 347,
+      "accountNumber": "115062",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 348,
+      "accountNumber": "115066",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 349,
+      "accountNumber": "115104",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 350,
+      "accountNumber": "115107",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 351,
+      "accountNumber": "115151",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 352,
+      "accountNumber": "115240",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 353,
+      "accountNumber": "115346",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 354,
+      "accountNumber": "115382",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 355,
+      "accountNumber": "115412",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 356,
+      "accountNumber": "115428",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 357,
+      "accountNumber": "115459",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 358,
+      "accountNumber": "115471",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 359,
+      "accountNumber": "115479",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 360,
+      "accountNumber": "115538",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 361,
+      "accountNumber": "115555",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 362,
+      "accountNumber": "115559",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 363,
+      "accountNumber": "115561",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 364,
+      "accountNumber": "115580",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 365,
+      "accountNumber": "115587",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 366,
+      "accountNumber": "115592",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 367,
+      "accountNumber": "115617",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 368,
+      "accountNumber": "115620",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 369,
+      "accountNumber": "115625",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 370,
+      "accountNumber": "115626",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 371,
+      "accountNumber": "115662",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 372,
+      "accountNumber": "115674",
+      "errors": [],
+      "warnings": [
+        "Account balance is zero.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 373,
+      "accountNumber": "115676",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 374,
+      "accountNumber": "115745",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 375,
+      "accountNumber": "115749",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 376,
+      "accountNumber": "115875",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 377,
+      "accountNumber": "115876",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 378,
+      "accountNumber": "115941",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 379,
+      "accountNumber": "115943",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 380,
+      "accountNumber": "115954",
+      "errors": [
+        "Country code '-' is not valid."
+      ],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 381,
+      "accountNumber": "116031",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 382,
+      "accountNumber": "116147",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 383,
+      "accountNumber": "116448",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 384,
+      "accountNumber": "116471",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 385,
+      "accountNumber": "116718",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 386,
+      "accountNumber": "116722",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 387,
+      "accountNumber": "116819",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 388,
+      "accountNumber": "116825",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 389,
+      "accountNumber": "116838",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 390,
+      "accountNumber": "116838",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 391,
+      "accountNumber": "116840",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 392,
+      "accountNumber": "116854",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 393,
+      "accountNumber": "116903",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 394,
+      "accountNumber": "116907",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 395,
+      "accountNumber": "116908",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 396,
+      "accountNumber": "116997",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 397,
+      "accountNumber": "117089",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Account balance is zero.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 398,
+      "accountNumber": "117098",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 399,
+      "accountNumber": "117118",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 400,
+      "accountNumber": "117134",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 401,
+      "accountNumber": "117139",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 402,
+      "accountNumber": "117176",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 403,
+      "accountNumber": "117196",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 404,
+      "accountNumber": "117199",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 405,
+      "accountNumber": "117223",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 406,
+      "accountNumber": "117261",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 407,
+      "accountNumber": "117274",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 408,
+      "accountNumber": "117715",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 409,
+      "accountNumber": "117940",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 410,
+      "accountNumber": "117948",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Account balance is zero.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 411,
+      "accountNumber": "117978",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 412,
+      "accountNumber": "118086",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 413,
+      "accountNumber": "118125",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 414,
+      "accountNumber": "118171",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Account balance is zero.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 415,
+      "accountNumber": "118340",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Account balance is zero.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 416,
+      "accountNumber": "118398",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 417,
+      "accountNumber": "118483",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 418,
+      "accountNumber": "118555",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 419,
+      "accountNumber": "118561",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 420,
+      "accountNumber": "118565",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 421,
+      "accountNumber": "118580",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 422,
+      "accountNumber": "118594",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 423,
+      "accountNumber": "118604",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 424,
+      "accountNumber": "118629",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 425,
+      "accountNumber": "118742",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 426,
+      "accountNumber": "118860",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 427,
+      "accountNumber": "118877",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 428,
+      "accountNumber": "118898",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 429,
+      "accountNumber": "118945",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 430,
+      "accountNumber": "118969",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 431,
+      "accountNumber": "119003",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 432,
+      "accountNumber": "119039",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 433,
+      "accountNumber": "119075",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 434,
+      "accountNumber": "119092",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 435,
+      "accountNumber": "119119",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 436,
+      "accountNumber": "119134",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 437,
+      "accountNumber": "119200",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 438,
+      "accountNumber": "119218",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 439,
+      "accountNumber": "119309",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 440,
+      "accountNumber": "119401",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 441,
+      "accountNumber": "119464",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 442,
+      "accountNumber": "119613",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 443,
+      "accountNumber": "119619",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 444,
+      "accountNumber": "119668",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 445,
+      "accountNumber": "119681",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 446,
+      "accountNumber": "119739",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 447,
+      "accountNumber": "119776",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 448,
+      "accountNumber": "119784",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 449,
+      "accountNumber": "119822",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 450,
+      "accountNumber": "119823",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 451,
+      "accountNumber": "119852",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 452,
+      "accountNumber": "119871",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 453,
+      "accountNumber": "119894",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 454,
+      "accountNumber": "119894",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 455,
+      "accountNumber": "119920",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 456,
+      "accountNumber": "119921",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 457,
+      "accountNumber": "119925",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 458,
+      "accountNumber": "119935",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 459,
+      "accountNumber": "119946",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 460,
+      "accountNumber": "119952",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 461,
+      "accountNumber": "119970",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 462,
+      "accountNumber": "120030",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 463,
+      "accountNumber": "120036",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 464,
+      "accountNumber": "120058",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 465,
+      "accountNumber": "120068",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 466,
+      "accountNumber": "120069",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 467,
+      "accountNumber": "120070",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 468,
+      "accountNumber": "120074",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 469,
+      "accountNumber": "120074",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 470,
+      "accountNumber": "120090",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 471,
+      "accountNumber": "120097",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 472,
+      "accountNumber": "120113",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 473,
+      "accountNumber": "120145",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 474,
+      "accountNumber": "120146",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 475,
+      "accountNumber": "120152",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 476,
+      "accountNumber": "120169",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 477,
+      "accountNumber": "120170",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 478,
+      "accountNumber": "120233",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 479,
+      "accountNumber": "120247",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 480,
+      "accountNumber": "120249",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 481,
+      "accountNumber": "120251",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 482,
+      "accountNumber": "120253",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 483,
+      "accountNumber": "120318",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 484,
+      "accountNumber": "120320",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 485,
+      "accountNumber": "120346",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 486,
+      "accountNumber": "120401",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 487,
+      "accountNumber": "120428",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 488,
+      "accountNumber": "120448",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 489,
+      "accountNumber": "120459",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 490,
+      "accountNumber": "120463",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 491,
+      "accountNumber": "120464",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 492,
+      "accountNumber": "120465",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 493,
+      "accountNumber": "120489",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 494,
+      "accountNumber": "120497",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 495,
+      "accountNumber": "120553",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 496,
+      "accountNumber": "120584",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 497,
+      "accountNumber": "120588",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 498,
+      "accountNumber": "120798",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 499,
+      "accountNumber": "120813",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 500,
+      "accountNumber": "120832",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 501,
+      "accountNumber": "120870",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    },
+    {
+      "rowNumber": 502,
+      "accountNumber": "120875",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 503,
+      "accountNumber": "120919",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 504,
+      "accountNumber": "120937",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 505,
+      "accountNumber": "120960",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 506,
+      "accountNumber": "121050",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 507,
+      "accountNumber": "121083",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 508,
+      "accountNumber": "121119",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 509,
+      "accountNumber": "121122",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 510,
+      "accountNumber": "121122",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 511,
+      "accountNumber": "121188",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 512,
+      "accountNumber": "121265",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 513,
+      "accountNumber": "121280",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 514,
+      "accountNumber": "121476",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 515,
+      "accountNumber": "121525",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 516,
+      "accountNumber": "121574",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 517,
+      "accountNumber": "121656",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 518,
+      "accountNumber": "121733",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 519,
+      "accountNumber": "121738",
+      "errors": [],
+      "warnings": [
+        "Account balance is zero.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 520,
+      "accountNumber": "121751",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 521,
+      "accountNumber": "121769",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 522,
+      "accountNumber": "121799",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 523,
+      "accountNumber": "121811",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 524,
+      "accountNumber": "121826",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 525,
+      "accountNumber": "121827",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 526,
+      "accountNumber": "121828",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 527,
+      "accountNumber": "121828",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 528,
+      "accountNumber": "121848",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 529,
+      "accountNumber": "121893",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 530,
+      "accountNumber": "121896",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 531,
+      "accountNumber": "121917",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 532,
+      "accountNumber": "121935",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 533,
+      "accountNumber": "121940",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 534,
+      "accountNumber": "121941",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 535,
+      "accountNumber": "121968",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 536,
+      "accountNumber": "121994",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 537,
+      "accountNumber": "122030",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 538,
+      "accountNumber": "122054",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 539,
+      "accountNumber": "122080",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 540,
+      "accountNumber": "122098",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 541,
+      "accountNumber": "122103",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 542,
+      "accountNumber": "122126",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 543,
+      "accountNumber": "122140",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 544,
+      "accountNumber": "122156",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 545,
+      "accountNumber": "122158",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 546,
+      "accountNumber": "122167",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 547,
+      "accountNumber": "122202",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 548,
+      "accountNumber": "122294",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 549,
+      "accountNumber": "122298",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 550,
+      "accountNumber": "122350",
+      "errors": [],
+      "warnings": [
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 551,
+      "accountNumber": "122362",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Account balance is zero.",
+        "Payment is missing or zero."
+      ]
+    },
+    {
+      "rowNumber": 552,
+      "accountNumber": "644950",
+      "errors": [],
+      "warnings": [
+        "TIN is missing for a non-US CRS account.",
+        "Payment is missing or zero.",
+        "Address appears short or incomplete."
+      ]
+    }
+  ]
+}

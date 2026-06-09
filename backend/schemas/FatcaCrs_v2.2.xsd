@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Property of the Dutch Tax Office, 16 september 2016 -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sfa_ftc="urn:oecd:ties:fatcacrstypes:v2" xmlns="urn:fatcacrs:ties:v2" targetNamespace="urn:fatcacrs:ties:v2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.2">
+	<xsd:import namespace="urn:oecd:ties:fatcacrstypes:v2" schemaLocation="FatcaCrsTypes_v2.2.xsd"/>
+	<!-- FATCA_CRS Message structure  -->
+	<xsd:element name="FATCA_CRS">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="MessageHeader" type="sfa_ftc:MessageSpec_Type"/>
+				<xsd:element name="MessageBody" type="sfa_ftc:Fatca_Crs_Type" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="version" type="xsd:string" use="required" fixed="2.2">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">FATCA CRS Version</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
