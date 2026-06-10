@@ -95,6 +95,7 @@ Use these Coolify values:
 - Container port: `8000`
 - Health check: `/health`
 - Publish directory: leave empty
+- Base directory: `/`
 
 If a start-command override is required, use exactly:
 
@@ -104,6 +105,7 @@ uvicorn backend.main:app --host 0.0.0.0 --port 8000 --proxy-headers
 
 The ASGI path is `backend.main:app`, not `main:app`. See
 [`COOLIFY.md`](COOLIFY.md) for the full deployment and domain-routing setup.
+Redeploy without cache after switching the Coolify build pack.
 
 ## API
 

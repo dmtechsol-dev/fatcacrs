@@ -1,0 +1,22 @@
+[phases.setup]
+nixPkgs = ["python312", "nodejs_22"]
+
+[phases.install]
+cmds = [
+  "python -m pip install -r requirements.txt",
+  "npm --prefix frontend ci --no-audit --no-fund"
+]
+
+[phases.build]
+cmds = [
+  "npm --prefix frontend run build",
+  "python -c \"from pathlib import Path; assert Path('frontend/dist/index.html').is_file() and Path('frontend/dist/assets').is_dir(), 'frontend build missing'\""
+]
+
+[variables]
+FRONTEND_DIST_DIR = "frontend/dist"
+REQUIRE_FRONTEND = "true"
+PYTHONUNBUFFERED = "1"
+
+[start]
+cmd = "uvicorn backend.main:app --host 0.0.0.0 --port 8000 --proxy-headers"

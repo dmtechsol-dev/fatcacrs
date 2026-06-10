@@ -1,5 +1,7 @@
+import pytest
 from fastapi.testclient import TestClient
 
+import backend.main as main_module
 from backend.main import app
 from backend.tests.conftest import workbook_bytes
 
@@ -25,6 +27,37 @@ def test_root_returns_frontend_or_service_status():
     else:
         assert response.json()["status"] == "ok"
         assert response.json()["apiPrefix"] == "/api"
+
+
+def test_frontend_route_uses_spa_fallback_when_build_exists():
+    response = TestClient(app).get("/validation/review")
+    if response.status_code == 200:
+        assert response.headers["content-type"].startswith("text/html")
+        assert "FC XML Studio" in response.text
+    else:
+        assert response.status_code == 503
+
+
+def test_unknown_api_route_is_not_frontend_fallback():
+    response = TestClient(app).get("/api/not-a-real-route")
+    assert response.status_code == 404
+    assert response.json() == {"detail": "Not Found"}
+
+
+def test_missing_frontend_asset_returns_404():
+    response = TestClient(app).get("/assets/not-a-real-asset.js")
+    assert response.status_code == 404
+
+
+def test_required_frontend_blocks_startup_when_build_is_missing(
+    monkeypatch, tmp_path
+):
+    monkeypatch.setattr(main_module, "REQUIRE_FRONTEND", True)
+    monkeypatch.setattr(main_module, "FRONTEND_INDEX", tmp_path / "index.html")
+    monkeypatch.setattr(main_module, "FRONTEND_ASSETS_DIR", tmp_path / "assets")
+    with pytest.raises(RuntimeError, match="Frontend build is required"):
+        with TestClient(app):
+            pass
 
 
 def test_upload_endpoint_parses_workbook():

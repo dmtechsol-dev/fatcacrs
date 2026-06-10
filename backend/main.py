@@ -13,8 +13,10 @@ from fastapi.staticfiles import StaticFiles
 
 from backend.config import (
     FRONTEND_ASSETS_DIR,
+    FRONTEND_DIST_DIR,
     FRONTEND_INDEX,
     GENERATED_DIR,
+    REQUIRE_FRONTEND,
     ROOT_SCHEMA,
 )
 from backend.excel_parser import parse_excel_bytes
@@ -33,14 +35,25 @@ from backend.xsd_validator import schema_readiness, validate_xml
 logger = logging.getLogger("uvicorn.error")
 
 
+def frontend_available() -> bool:
+    return FRONTEND_INDEX.is_file() and FRONTEND_ASSETS_DIR.is_dir()
+
+
 @asynccontextmanager
 async def lifespan(application: FastAPI):
     try:
+        if REQUIRE_FRONTEND and not frontend_available():
+            raise RuntimeError(
+                "Frontend build is required but "
+                f"{FRONTEND_INDEX} or {FRONTEND_ASSETS_DIR} is missing."
+            )
         schema = schema_readiness(ROOT_SCHEMA)
         logger.info(
-            "FATCA/CRS service started: routes=%d frontend=%s schema=%s",
+            "FATCA/CRS service started: routes=%d frontend=%s "
+            "frontend_dir=%s schema=%s",
             len(application.routes),
-            "available" if FRONTEND_INDEX.is_file() else "not-built",
+            "available" if frontend_available() else "not-built",
+            FRONTEND_DIST_DIR,
             schema.status,
         )
         yield
@@ -69,14 +82,14 @@ def health_payload():
     return {
         "status": "ok",
         "service": "fatca-crs-xml-generator",
-        "frontend": FRONTEND_INDEX.is_file(),
+        "frontend": frontend_available(),
         "schema": schema_readiness(ROOT_SCHEMA).model_dump(by_alias=True),
     }
 
 
 @app.get("/", include_in_schema=False)
 def root():
-    if FRONTEND_INDEX.is_file():
+    if frontend_available():
         return FileResponse(
             FRONTEND_INDEX,
             media_type="text/html",
@@ -267,4 +280,20 @@ if FRONTEND_ASSETS_DIR.is_dir():
         "/assets",
         StaticFiles(directory=FRONTEND_ASSETS_DIR),
         name="frontend-assets",
+    )
+
+
+@app.get("/{frontend_path:path}", include_in_schema=False)
+def frontend_route(frontend_path: str):
+    if frontend_path == "api" or frontend_path.startswith("api/"):
+        raise HTTPException(status_code=404, detail="Not Found")
+    if frontend_available():
+        return FileResponse(
+            FRONTEND_INDEX,
+            media_type="text/html",
+            headers={"Cache-Control": "no-cache"},
+        )
+    raise HTTPException(
+        status_code=503,
+        detail="Frontend build is unavailable.",
     )

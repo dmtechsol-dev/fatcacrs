@@ -24,6 +24,10 @@ This repository is a single deployable application:
 Do not use `main:app`. The ASGI application is defined in
 `backend/main.py`, so its import path is `backend.main:app`.
 
+After changing the build pack to Dockerfile, use **Redeploy without cache**.
+The production image sets `REQUIRE_FRONTEND=true`, so deployment now fails at
+startup instead of reporting healthy when the frontend was not copied.
+
 The optional start override contains no shell metacharacters. Do not append
 `&`, `|`, `;`, `$`, backticks, redirects, parentheses, or multiline commands.
 
@@ -42,6 +46,12 @@ frontend Coolify service is not required:
 The frontend uses same-origin `/api` URLs by default. Do not set
 `VITE_API_BASE_URL` for this single-service deployment.
 
+The repository also includes `nixpacks.toml` as a compatibility safeguard for
+an existing Coolify resource that has not yet been switched from Nixpacks. It
+installs both Python and Node dependencies, runs the Vite build, verifies
+`frontend/dist/index.html`, and uses the same safe Uvicorn start command.
+Dockerfile remains the recommended build pack.
+
 No FastAPI `root_path` is required when the domain points to the application
 root. If Coolify is configured with a path prefix, remove that prefix and use a
 dedicated domain or subdomain. This avoids proxy path stripping or duplicated
@@ -56,8 +66,10 @@ GET /          -> 200 text/html
 GET /health    -> 200 application/json
 GET /docs      -> 200 text/html
 GET /api/health -> 200 application/json
+GET /validation/review -> 200 text/html
 ```
 
-If `/` still returns `{"detail":"Not Found"}`, confirm that Coolify rebuilt the
-latest commit using the root Dockerfile and that the domain targets port
-`8000`, not an older backend-only resource.
+If `/` returns the API fallback JSON, the running container was built without
+the production frontend requirement. Confirm that Coolify rebuilt the latest
+commit without cache using either the root Dockerfile or `nixpacks.toml`, and
+that the base directory is `/`, not `/backend`.
