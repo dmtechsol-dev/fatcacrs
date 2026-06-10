@@ -1,14 +1,22 @@
 from __future__ import annotations
 
 import json
+import logging
+from contextlib import asynccontextmanager
 from pathlib import Path
 from uuid import uuid4
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
-from backend.config import GENERATED_DIR, ROOT_SCHEMA
+from backend.config import (
+    FRONTEND_ASSETS_DIR,
+    FRONTEND_INDEX,
+    GENERATED_DIR,
+    ROOT_SCHEMA,
+)
 from backend.excel_parser import parse_excel_bytes
 from backend.models import (
     DownloadArtifact,
@@ -22,9 +30,29 @@ from backend.validators import build_summary, validate_records
 from backend.xml_builder import build_xml
 from backend.xsd_validator import schema_readiness, validate_xml
 
+logger = logging.getLogger("uvicorn.error")
+
+
+@asynccontextmanager
+async def lifespan(application: FastAPI):
+    try:
+        schema = schema_readiness(ROOT_SCHEMA)
+        logger.info(
+            "FATCA/CRS service started: routes=%d frontend=%s schema=%s",
+            len(application.routes),
+            "available" if FRONTEND_INDEX.is_file() else "not-built",
+            schema.status,
+        )
+        yield
+    except Exception:
+        logger.exception("FATCA/CRS service stopped after an application error.")
+        raise
+
+
 app = FastAPI(
     title="Local FATCA/CRS FC XML Generator",
     version="1.0.0",
+    lifespan=lifespan,
 )
 app.add_middleware(
     CORSMiddleware,
@@ -37,13 +65,41 @@ app.add_middleware(
 SESSIONS: dict[str, dict] = {}
 
 
-@app.get("/api/health")
-def health():
+def health_payload():
     return {
         "status": "ok",
-        "localOnly": True,
+        "service": "fatca-crs-xml-generator",
+        "frontend": FRONTEND_INDEX.is_file(),
         "schema": schema_readiness(ROOT_SCHEMA).model_dump(by_alias=True),
     }
+
+
+@app.get("/", include_in_schema=False)
+def root():
+    if FRONTEND_INDEX.is_file():
+        return FileResponse(
+            FRONTEND_INDEX,
+            media_type="text/html",
+            headers={"Cache-Control": "no-cache"},
+        )
+    return {
+        "status": "ok",
+        "service": "fatca-crs-xml-generator",
+        "message": "API service is running; the frontend build is unavailable.",
+        "health": "/health",
+        "docs": "/docs",
+        "apiPrefix": "/api",
+    }
+
+
+@app.get("/health", include_in_schema=False)
+def deployment_health():
+    return health_payload()
+
+
+@app.get("/api/health")
+def health():
+    return health_payload()
 
 
 @app.post("/api/upload-excel", response_model=UploadResponse)
@@ -204,3 +260,11 @@ def download(file_id: str):
     if not path.is_file():
         raise HTTPException(status_code=404, detail="Generated file not found.")
     return FileResponse(path, filename=file_id)
+
+
+if FRONTEND_ASSETS_DIR.is_dir():
+    app.mount(
+        "/assets",
+        StaticFiles(directory=FRONTEND_ASSETS_DIR),
+        name="frontend-assets",
+    )

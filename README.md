@@ -81,6 +81,30 @@ npm run dev
 
 Open `http://127.0.0.1:5173`.
 
+## Production / Coolify
+
+The production deployment is a single Docker service. The Dockerfile builds
+the React frontend and copies it into the FastAPI image, where it is served at
+`/`.
+
+Use these Coolify values:
+
+- Build pack: `Dockerfile`
+- Dockerfile: `/Dockerfile`
+- Start command: leave empty
+- Container port: `8000`
+- Health check: `/health`
+- Publish directory: leave empty
+
+If a start-command override is required, use exactly:
+
+```text
+uvicorn backend.main:app --host 0.0.0.0 --port 8000 --proxy-headers
+```
+
+The ASGI path is `backend.main:app`, not `main:app`. See
+[`COOLIFY.md`](COOLIFY.md) for the full deployment and domain-routing setup.
+
 ## API
 
 - `POST /api/upload-excel`
@@ -88,6 +112,8 @@ Open `http://127.0.0.1:5173`.
 - `POST /api/generate-xml`
 - `GET /api/download/{fileId}`
 - `GET /api/health`
+- `GET /health`
+- `GET /` (frontend in production, service JSON when no frontend build exists)
 
 Generated files are written under `backend/data/generated/` and ignored by Git.
 Uploaded workbook bytes are parsed in memory and are not persisted.

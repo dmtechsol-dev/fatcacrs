@@ -2,10 +2,14 @@ from pathlib import Path
 
 
 BASE_DIR = Path(__file__).resolve().parent
+PROJECT_DIR = BASE_DIR.parent
 SCHEMA_DIR = BASE_DIR / "schemas"
 ROOT_SCHEMA = SCHEMA_DIR / "FatcaCrs_v2.2.xsd"
 GENERATED_DIR = BASE_DIR / "data" / "generated"
 GENERATED_DIR.mkdir(parents=True, exist_ok=True)
+FRONTEND_DIST_DIR = PROJECT_DIR / "frontend" / "dist"
+FRONTEND_INDEX = FRONTEND_DIST_DIR / "index.html"
+FRONTEND_ASSETS_DIR = FRONTEND_DIST_DIR / "assets"
 
 EXPECTED_SHEET = "Accounts to report - IRD"
 EXPECTED_COLUMNS = {
