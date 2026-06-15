@@ -60,7 +60,6 @@ class ReportingSettings(ApiModel):
     warning: str = Field(default="", max_length=4000)
     default_payment_type: Literal["CRS501", "CRS502", "CRS503", "CRS504"] = "CRS502"
     include_zero_payments: bool = False
-    interpret_true_as_closed: bool = True
 
     @field_validator(
         "reporting_fi_tin_issued_by",

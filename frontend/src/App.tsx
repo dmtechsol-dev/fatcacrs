@@ -64,7 +64,6 @@ const initialSettings: Settings = {
   warning: "",
   defaultPaymentType: "CRS502",
   includeZeroPayments: false,
-  interpretTrueAsClosed: true,
 };
 
 const initialStatusMapping: StatusMapping = {

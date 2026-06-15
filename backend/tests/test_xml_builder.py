@@ -16,7 +16,7 @@ def sample_record(row_number: int, account: str):
         address="1 Analytical Engine Way",
         country="GB",
         tin="GB-TIN-1",
-        account_status=True,
+        account_status=False,
         payment="15.25",
         account_balance="1000",
     )
@@ -32,7 +32,7 @@ def test_xml_is_well_formed_and_uses_expected_elements(settings):
     assert root.xpath("count(//*[local-name()='Payment'])") == 1.0
     account_number = root.find(f".//{{{NS_SFA_FTC}}}AccountNumber")
     assert account_number is not None
-    assert account_number.get("ClosedAccount") == "true"
+    assert account_number.get("ClosedAccount") == "false"
     assert account_number.get("DormantAccount") == "false"
     assert account_number.get("UndocumentedAccount") == "false"
 
@@ -99,3 +99,21 @@ def test_required_template_elements_and_statuses_validate(settings):
     }
     schema_result = validate_xml(content, ROOT_SCHEMA)
     assert schema_result.valid, schema_result.errors
+
+
+def test_legacy_account_status_sets_only_dormant_attribute(settings):
+    record = sample_record(2, "A-1").model_copy(
+        update={
+            "account_status": True,
+            "dormant_account": True,
+            "closed_account": False,
+            "undocumented_account": False,
+        }
+    )
+    content, _ = build_xml([record], settings)
+    account_number = etree.fromstring(content).xpath(
+        "//*[local-name()='AccountNumber']"
+    )[0]
+    assert account_number.get("DormantAccount") == "true"
+    assert account_number.get("ClosedAccount") == "false"
+    assert account_number.get("UndocumentedAccount") == "false"

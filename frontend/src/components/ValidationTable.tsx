@@ -67,8 +67,8 @@ export function ValidationTable({ records, onChange }: Props) {
           ...record,
           [field]: checked,
           accountStatus:
-            field === "closedAccount" && !checked
-              ? false
+            field === "dormantAccount"
+              ? checked
               : record.accountStatus,
           statusError: "",
         };
@@ -208,8 +208,8 @@ export function ValidationTable({ records, onChange }: Props) {
                       <label key={field}>
                         <input
                           checked={
-                            field === "closedAccount"
-                              ? record.closedAccount || record.accountStatus
+                            field === "dormantAccount"
+                              ? record.dormantAccount || record.accountStatus
                               : record[field]
                           }
                           onChange={(event) =>

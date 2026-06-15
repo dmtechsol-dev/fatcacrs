@@ -79,30 +79,7 @@ def test_explicit_status_columns_are_detected_and_normalized():
     assert result.status_mapping.undocumented_account == "IsUndocumented"
 
 
-def test_account_status_names_map_to_xsd_flags():
-    content = workbook_bytes(
-        [
-            [
-                900,
-                "A",
-                "B",
-                None,
-                "A complete address",
-                "GB",
-                "TIN-1",
-                "Dormant Undocumented",
-                0,
-                1,
-            ]
-        ]
-    )
-    record = parse_excel_bytes(content)[0]
-    assert record.dormant_account
-    assert record.undocumented_account
-    assert not record.closed_account
-
-
-def test_true_account_status_maps_to_closed_account():
+def test_account_status_true_maps_only_to_dormant():
     content = workbook_bytes(
         [
             [
@@ -121,25 +98,12 @@ def test_true_account_status_maps_to_closed_account():
     )
     record = parse_excel_bytes(content)[0]
     assert record.account_status
-    assert record.closed_account
-
-
-def test_missing_status_columns_default_false_with_warning():
-    headers = [
-        header
-        for header in HEADERS
-        if str(header).strip().lower() != "account status"
-    ]
-    row = [900, "A", "B", None, "A complete address", "GB", "TIN-1", 0, 1]
-    result = parse_excel_with_metadata(workbook_bytes([row], headers=headers))
-    record = result.records[0]
-    assert not record.dormant_account
+    assert record.dormant_account
     assert not record.closed_account
     assert not record.undocumented_account
-    assert any("default to false" in item for item in result.status_mapping.warnings)
 
 
-def test_invalid_status_value_becomes_readable_record_error():
+def test_account_status_false_maps_to_active_only():
     content = workbook_bytes(
         [
             [
@@ -150,14 +114,101 @@ def test_invalid_status_value_becomes_readable_record_error():
                 "A complete address",
                 "GB",
                 "TIN-1",
-                "Maybe",
+                "FALSE",
                 0,
                 1,
             ]
         ]
     )
     record = parse_excel_bytes(content)[0]
-    assert "Unsupported account status value 'Maybe'" in record.status_error
+    assert not record.account_status
+    assert not record.dormant_account
+    assert not record.closed_account
+    assert not record.undocumented_account
+
+
+def test_missing_dormant_status_column_is_rejected():
+    headers = [
+        header
+        for header in HEADERS
+        if str(header).strip().lower() != "account status"
+    ]
+    row = [900, "A", "B", None, "A complete address", "GB", "TIN-1", 0, 1]
+    with pytest.raises(ValueError, match="required dormant status column"):
+        parse_excel_with_metadata(workbook_bytes([row], headers=headers))
+
+
+@pytest.mark.parametrize("value", ["", None, "Maybe", "Dormant", "Closed"])
+def test_blank_or_invalid_account_status_is_a_readable_record_error(value):
+    content = workbook_bytes(
+        [
+            [
+                900,
+                "A",
+                "B",
+                None,
+                "A complete address",
+                "GB",
+                "TIN-1",
+                value,
+                0,
+                1,
+            ]
+        ]
+    )
+    record = parse_excel_bytes(content)[0]
+    assert "Invalid dormant Account Status value" in record.status_error
+
+
+def test_dedicated_closed_and_undocumented_columns_do_not_change_dormant():
+    headers = [*HEADERS, "Account Closed", "Undocumented Account"]
+    content = workbook_bytes(
+        [
+            [
+                900,
+                "A",
+                "B",
+                None,
+                "A complete address",
+                "GB",
+                "TIN-1",
+                "FALSE",
+                0,
+                1,
+                "Yes",
+                "1",
+            ]
+        ],
+        headers=headers,
+    )
+    record = parse_excel_bytes(content)[0]
+    assert not record.dormant_account
+    assert record.closed_account
+    assert record.undocumented_account
+
+
+def test_conflicting_dormant_columns_are_rejected():
+    headers = [*HEADERS, "IsDormant"]
+    content = workbook_bytes(
+        [
+            [
+                900,
+                "A",
+                "B",
+                None,
+                "A complete address",
+                "GB",
+                "TIN-1",
+                "TRUE",
+                0,
+                1,
+                "FALSE",
+            ]
+        ],
+        headers=headers,
+    )
+    record = parse_excel_bytes(content)[0]
+    assert "dedicated dormant column conflict" in record.status_error
 
 
 def test_missing_required_excel_field_is_reported():

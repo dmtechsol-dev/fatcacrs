@@ -111,14 +111,12 @@ def build_xml(
             doc_ref_id,
         )
 
-        closed_account = record.closed_account or (
-            settings.interpret_true_as_closed and record.account_status
-        )
+        dormant_account = record.dormant_account or record.account_status
         account_attrs = {
             "AccNumberType": "OECD605",
             "UndocumentedAccount": str(record.undocumented_account).lower(),
-            "ClosedAccount": str(closed_account).lower(),
-            "DormantAccount": str(record.dormant_account).lower(),
+            "ClosedAccount": str(record.closed_account).lower(),
+            "DormantAccount": str(dormant_account).lower(),
         }
         add(
             account_report,

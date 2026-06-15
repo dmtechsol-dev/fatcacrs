@@ -11,7 +11,6 @@ type Props = {
 type TextField = Exclude<
   keyof Settings,
   | "includeZeroPayments"
-  | "interpretTrueAsClosed"
   | "mode"
   | "messageTypeIndic"
   | "defaultPaymentType"
@@ -173,30 +172,22 @@ export function SettingsPage({
             />
             Include zero payment entries
           </label>
-          <label className="check-field">
-            <input
-              checked={settings.interpretTrueAsClosed}
-              onChange={(event) =>
-                set("interpretTrueAsClosed", event.target.checked)
-              }
-              type="checkbox"
-            />
-            Interpret Account Status true as closed
-          </label>
         </div>
       </div>
       <div className="mapping-panel">
         <div>
           <strong>Detected account status columns</strong>
           <p>
-            Missing indicators default to <code>false</code>. The generated
-            AccountNumber always includes all three XSD status attributes.
+            Account Status supplies the required dormant value. Missing
+            dedicated closed or undocumented indicators default to{" "}
+            <code>false</code>. The generated AccountNumber always includes
+            all three XSD status attributes.
           </p>
         </div>
         <div className="mapping-list">
           {[
-            ["Account Status", statusMapping.accountStatus],
-            ["DormantAccount", statusMapping.dormantAccount],
+            ["Dormant: Account Status", statusMapping.accountStatus],
+            ["Dormant: dedicated column", statusMapping.dormantAccount],
             ["ClosedAccount", statusMapping.closedAccount],
             ["UndocumentedAccount", statusMapping.undocumentedAccount],
           ].map(([label, source]) => (

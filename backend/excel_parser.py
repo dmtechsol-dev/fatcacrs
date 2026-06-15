@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import re
 from dataclasses import dataclass
 from datetime import date, datetime
 from io import BytesIO
@@ -18,8 +17,7 @@ from backend.models import AccountRecord, StatusMappingInfo
 
 
 TRUE_VALUES = {"true", "yes", "y", "1"}
-FALSE_VALUES = {"", "false", "no", "n", "0", "open", "active"}
-STATUS_LABELS = {"dormant", "closed", "undocumented"}
+FALSE_VALUES = {"false", "no", "n", "0"}
 
 
 @dataclass(frozen=True)
@@ -80,7 +78,7 @@ def normalize_status_indicator(value: Any, label: str) -> tuple[bool, str]:
     raw = _text(value).lower()
     if raw in TRUE_VALUES or raw == label:
         return True, ""
-    if raw in FALSE_VALUES:
+    if raw in FALSE_VALUES or not raw:
         return False, ""
     return False, (
         f"Unsupported {label} status value '{_text(value)}'. "
@@ -88,32 +86,16 @@ def normalize_status_indicator(value: Any, label: str) -> tuple[bool, str]:
     )
 
 
-def normalize_account_status(
-    value: Any,
-) -> tuple[bool, bool, bool, bool, str]:
+def normalize_account_status(value: Any) -> tuple[bool, str]:
     raw = _text(value).lower()
     if raw in TRUE_VALUES:
-        return True, False, True, False, ""
+        return True, ""
     if raw in FALSE_VALUES:
-        return False, False, False, False, ""
-
-    tokens = {
-        token
-        for token in re.split(r"[\s,;/|]+", raw)
-        if token
-    }
-    if tokens and tokens <= STATUS_LABELS:
-        return (
-            "closed" in tokens,
-            "dormant" in tokens,
-            "closed" in tokens,
-            "undocumented" in tokens,
-            "",
-        )
-    return False, False, False, False, (
-        f"Unsupported account status value '{_text(value)}'. "
-        "Use Open, Dormant, Closed, Undocumented, Yes/No, "
-        "Y/N, TRUE/FALSE, or 1/0."
+        return False, ""
+    shown_value = _text(value) or "(blank)"
+    return False, (
+        f"Invalid dormant Account Status value '{shown_value}'. "
+        "Use Yes/No, Y/N, TRUE/FALSE, or 1/0."
     )
 
 
@@ -135,19 +117,17 @@ def status_mapping_info(
     warnings: list[str] = []
     if not detected:
         warnings.append(
-            "No account status columns were detected. DormantAccount, "
-            "ClosedAccount, and UndocumentedAccount default to false."
+            "No dormant status column was detected."
         )
     else:
         for field, label in (
-            ("dormant_account", "DormantAccount"),
             ("closed_account", "ClosedAccount"),
             ("undocumented_account", "UndocumentedAccount"),
         ):
             if field not in detected:
                 warnings.append(
                     f"No dedicated {label} column was detected. It defaults "
-                    "to false unless the Account Status column indicates it."
+                    "to false."
                 )
     return StatusMappingInfo(
         account_status=detected.get("account_status"),
@@ -180,10 +160,16 @@ def parse_excel_with_metadata(content: bytes) -> WorkbookParseResult:
         if mapped:
             mapped_headers[index] = mapped
 
-    missing = sorted(REQUIRED_ACCOUNT_FIELDS - set(mapped_headers.values()))
+    mapped_fields = set(mapped_headers.values())
+    missing = sorted(REQUIRED_ACCOUNT_FIELDS - mapped_fields)
     if missing:
         raise ValueError(
             "Workbook is missing required columns: " + ", ".join(missing)
+        )
+    if not {"account_status", "dormant_account"} & mapped_fields:
+        raise ValueError(
+            "Workbook is missing a required dormant status column. "
+            "Use 'Account Status', 'Dormant', or 'IsDormant'."
         )
 
     records: list[AccountRecord] = []
@@ -199,15 +185,13 @@ def parse_excel_with_metadata(content: bytes) -> WorkbookParseResult:
         if not any(value not in (None, "") for value in values.values()):
             continue
         status_errors: list[str] = []
-        (
-            account_status,
-            status_dormant,
-            status_closed,
-            status_undocumented,
-            account_status_error,
-        ) = normalize_account_status(values.get("account_status"))
-        if account_status_error:
-            status_errors.append(account_status_error)
+        account_status = False
+        if "account_status" in values:
+            account_status, account_status_error = normalize_account_status(
+                values.get("account_status")
+            )
+            if account_status_error:
+                status_errors.append(account_status_error)
 
         explicit_statuses: dict[str, bool] = {}
         for field, label in (
@@ -224,6 +208,18 @@ def parse_excel_with_metadata(content: bytes) -> WorkbookParseResult:
             if status_error:
                 status_errors.append(status_error)
 
+        dormant_account = explicit_statuses.get(
+            "dormant_account", account_status
+        )
+        if (
+            "account_status" in values
+            and "dormant_account" in explicit_statuses
+            and dormant_account != account_status
+        ):
+            status_errors.append(
+                "Account Status and the dedicated dormant column conflict."
+            )
+
         records.append(
             AccountRecord(
                 row_number=row_number,
@@ -237,17 +233,12 @@ def parse_excel_with_metadata(content: bytes) -> WorkbookParseResult:
                 country=_text(values["country"]).upper(),
                 tin=_text(values["tin"]),
                 account_status=account_status,
-                dormant_account=(
-                    status_dormant
-                    or explicit_statuses.get("dormant_account", False)
+                dormant_account=dormant_account,
+                closed_account=explicit_statuses.get(
+                    "closed_account", False
                 ),
-                closed_account=(
-                    status_closed
-                    or explicit_statuses.get("closed_account", False)
-                ),
-                undocumented_account=(
-                    status_undocumented
-                    or explicit_statuses.get("undocumented_account", False)
+                undocumented_account=explicit_statuses.get(
+                    "undocumented_account", False
                 ),
                 status_error=" ".join(status_errors),
                 payment=_text(values["payment"]),

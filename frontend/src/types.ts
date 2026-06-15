@@ -62,7 +62,6 @@ export type Settings = {
   warning: string;
   defaultPaymentType: "CRS501" | "CRS502" | "CRS503" | "CRS504";
   includeZeroPayments: boolean;
-  interpretTrueAsClosed: boolean;
 };
 
 export type StatusMapping = {

@@ -129,11 +129,16 @@ Data errors cannot be bypassed. Only an XSD failure or incomplete schema set can
 be exported through the explicit developer/debug draft option. Draft XML
 filenames are prefixed with `DRAFT_`.
 
-Status columns are optional. The parser recognizes `Account Status`, `Dormant`,
-`IsDormant`, `Closed`, `IsClosed`, `Undocumented`, and `IsUndocumented`
-variants. Values such as `Yes/No`, `Y/N`, `TRUE/FALSE`, `1/0`, `Dormant`,
-`Closed`, and `Undocumented` are normalized. Missing indicators default to
-`false`, and all three XSD attributes are written on every `AccountNumber`.
+`Account Status` is the workbook's dormant indicator: true means dormant and
+false means active. It accepts `Yes/No`, `Y/N`, `TRUE/FALSE`, and `1/0`.
+Blank or invalid values are blocking validation errors. `Dormant` and
+`IsDormant` are also recognized as dedicated dormant-column aliases.
+
+Closed and undocumented states are never inferred from `Account Status`. They
+are populated only from dedicated `Closed`, `IsClosed`, `Account Closed`,
+`Undocumented`, `IsUndocumented`, or `Undocumented Account` columns. When
+those columns are absent, their values default to `false`. All three XSD
+attributes are written on every `AccountNumber`.
 
 Account report document references use this format:
 

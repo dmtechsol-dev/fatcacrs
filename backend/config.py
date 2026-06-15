@@ -42,6 +42,8 @@ EXPECTED_COLUMNS = {
     "closed": "closed_account",
     "is closed": "closed_account",
     "isclosed": "closed_account",
+    "account closed": "closed_account",
+    "accountclosed": "closed_account",
     "closed account": "closed_account",
     "closedaccount": "closed_account",
     "undocumented": "undocumented_account",

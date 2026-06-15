@@ -1,6 +1,6 @@
 {
   "sourceWorkbook": "Copy of CRS Reportable Accounts  - Year 2025 - IT Officer.xlsx",
-  "messageRefId": "DM2025DEMO12320260615160933988646",
+  "messageRefId": "DM2025DEMO12320260615172042670810",
   "sampleXmlRecordCount": 3,
   "summary": {
     "totalRecords": 549,
@@ -24,9 +24,9 @@
       "SE": 3,
       "SL": 3
     },
-    "closedAccounts": 231,
-    "openAccounts": 318,
-    "dormantAccounts": 0,
+    "closedAccounts": 0,
+    "openAccounts": 549,
+    "dormantAccounts": 231,
     "undocumentedAccounts": 0,
     "missingTin": 444,
     "missingDob": 0,

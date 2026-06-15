@@ -1,10 +1,11 @@
 import pytest
 from fastapi.testclient import TestClient
+from lxml import etree
 
 import backend.main as main_module
 from backend.main import app
 from backend.models import AccountRecord, SchemaValidationResult
-from backend.tests.conftest import workbook_bytes
+from backend.tests.conftest import HEADERS, workbook_bytes
 
 
 def test_api_health_reports_service_status():
@@ -123,3 +124,72 @@ def test_invalid_xsd_blocks_download_unless_draft_is_explicit(
     assert draft.status_code == 200
     assert draft.json()["draft"]
     assert draft.json()["xml"]["fileName"].startswith("DRAFT_")
+
+
+def test_api_keeps_dormant_and_closed_status_sources_separate(settings):
+    headers = [*HEADERS, "Account Closed", "Undocumented Account"]
+    content = workbook_bytes(
+        [
+            [
+                900,
+                "Dormant",
+                "Holder",
+                "1980-01-01",
+                "A complete address",
+                "GB",
+                "TIN-1",
+                "TRUE",
+                10,
+                100,
+                "No",
+                "No",
+            ],
+            [
+                901,
+                "Closed",
+                "Holder",
+                "1980-01-01",
+                "A complete address",
+                "GB",
+                "TIN-2",
+                "FALSE",
+                10,
+                100,
+                "Yes",
+                "No",
+            ],
+        ],
+        headers=headers,
+    )
+    client = TestClient(app)
+    upload = client.post(
+        "/api/upload-excel",
+        files={
+            "file": (
+                "accounts.xlsx",
+                content,
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            )
+        },
+    )
+    assert upload.status_code == 200
+    payload = upload.json()
+    generation = client.post(
+        "/api/generate-xml",
+        json={
+            "sessionId": payload["sessionId"],
+            "records": payload["records"],
+            "settings": settings.model_dump(by_alias=True),
+            "allowDraft": False,
+        },
+    )
+    assert generation.status_code == 200
+    account_numbers = etree.fromstring(
+        generation.json()["xmlPreview"].encode()
+    ).xpath("//*[local-name()='AccountNumber']")
+    assert account_numbers[0].get("DormantAccount") == "true"
+    assert account_numbers[0].get("ClosedAccount") == "false"
+    assert account_numbers[0].get("UndocumentedAccount") == "false"
+    assert account_numbers[1].get("DormantAccount") == "false"
+    assert account_numbers[1].get("ClosedAccount") == "true"
+    assert account_numbers[1].get("UndocumentedAccount") == "false"

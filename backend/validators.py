@@ -127,10 +127,7 @@ def validate_records(
 
 def build_summary(records: list[AccountRecord]) -> ValidationSummary:
     countries = Counter(record.country or "(missing)" for record in records)
-    closed = [
-        record.closed_account or record.account_status
-        for record in records
-    ]
+    closed = [record.closed_account for record in records]
     return ValidationSummary(
         total_records=len(records),
         valid_records=sum(not record.errors for record in records),
@@ -139,7 +136,10 @@ def build_summary(records: list[AccountRecord]) -> ValidationSummary:
         country_breakdown=dict(sorted(countries.items())),
         closed_accounts=sum(closed),
         open_accounts=sum(not value for value in closed),
-        dormant_accounts=sum(record.dormant_account for record in records),
+        dormant_accounts=sum(
+            record.dormant_account or record.account_status
+            for record in records
+        ),
         undocumented_accounts=sum(
             record.undocumented_account for record in records
         ),

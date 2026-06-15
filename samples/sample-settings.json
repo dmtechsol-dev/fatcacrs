@@ -17,6 +17,5 @@
   "contact": "Local demonstration only",
   "warning": "Generated from the attached workbook for local application verification.",
   "defaultPaymentType": "CRS502",
-  "includeZeroPayments": false,
-  "interpretTrueAsClosed": true
+  "includeZeroPayments": false
 }
