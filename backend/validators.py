@@ -35,6 +35,8 @@ def validate_record(record: AccountRecord) -> AccountRecord:
     balance = parse_decimal(record.account_balance)
     payment = parse_decimal(record.payment)
 
+    if record.status_error:
+        errors.append(record.status_error)
     if not record.account_number:
         errors.append("Missing account number.")
     if not record.first_name:
@@ -85,8 +87,17 @@ def validate_records(
         return validated
 
     refs: dict[str, list[int]] = defaultdict(list)
-    for index, record in enumerate(validated):
-        refs[make_account_doc_ref_id(record, settings)].append(index)
+    try:
+        for index, _record in enumerate(validated, start=1):
+            refs[make_account_doc_ref_id(settings, index)].append(index - 1)
+    except ValueError as exc:
+        message = f"Cannot generate DocRefId: {exc}"
+        return [
+            record.model_copy(
+                update={"errors": [*record.errors, message]}
+            )
+            for record in validated
+        ]
     duplicate_indexes = {
         index
         for indexes in refs.values()
@@ -116,14 +127,22 @@ def validate_records(
 
 def build_summary(records: list[AccountRecord]) -> ValidationSummary:
     countries = Counter(record.country or "(missing)" for record in records)
+    closed = [
+        record.closed_account or record.account_status
+        for record in records
+    ]
     return ValidationSummary(
         total_records=len(records),
         valid_records=sum(not record.errors for record in records),
         error_records=sum(bool(record.errors) for record in records),
         warning_records=sum(bool(record.warnings) for record in records),
         country_breakdown=dict(sorted(countries.items())),
-        closed_accounts=sum(record.account_status for record in records),
-        open_accounts=sum(not record.account_status for record in records),
+        closed_accounts=sum(closed),
+        open_accounts=sum(not value for value in closed),
+        dormant_accounts=sum(record.dormant_account for record in records),
+        undocumented_accounts=sum(
+            record.undocumented_account for record in records
+        ),
         missing_tin=sum(record.tin.strip() in {"", "-"} for record in records),
         missing_dob=sum(not record.date_of_birth for record in records),
         missing_balance=sum(not record.account_balance for record in records),

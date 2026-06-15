@@ -1,8 +1,11 @@
-import hashlib
 import re
 from datetime import datetime, timezone
 
-from backend.models import AccountRecord, ReportingSettings
+from backend.models import ReportingSettings
+
+
+DOC_REF_SEQUENCE_WIDTH = 5
+MAX_DOC_REF_SEQUENCE = (10**DOC_REF_SEQUENCE_WIDTH) - 1
 
 
 def _clean(value: str, limit: int = 80) -> str:
@@ -11,10 +14,12 @@ def _clean(value: str, limit: int = 80) -> str:
 
 
 def reporting_year(settings: ReportingSettings) -> str:
-    return settings.reporting_period[:4]
+    return settings.tax_year
 
 
 def make_message_ref_id(settings: ReportingSettings) -> str:
+    if settings.message_ref_id:
+        return settings.message_ref_id.strip()
     now = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S%f")
     return (
         f"{settings.transmitting_country}{reporting_year(settings)}"
@@ -22,40 +27,39 @@ def make_message_ref_id(settings: ReportingSettings) -> str:
     )[:200]
 
 
-def make_reporting_fi_doc_ref_id(settings: ReportingSettings) -> str:
-    source = "|".join(
-        [
-            settings.reporting_fi_country,
-            reporting_year(settings),
-            settings.sending_company_in,
-            settings.reporting_fi_tin,
-            settings.reporting_fi_name,
-        ]
+def _doc_ref_prefix(settings: ReportingSettings) -> str:
+    country = re.sub(r"[^A-Za-z0-9]", "", settings.reporting_fi_country).upper()
+    tin = re.sub(r"[^A-Za-z0-9]", "", settings.reporting_fi_tin).upper()
+    if len(country) != 2:
+        raise ValueError("Reporting country must contain exactly two letters.")
+    if not tin:
+        raise ValueError(
+            "Reporting FI TIN must contain at least one letter or digit."
+        )
+    return f"{country}{reporting_year(settings)}{tin}"
+
+
+def make_doc_ref_id(settings: ReportingSettings, sequence: int) -> str:
+    if sequence < 0 or sequence > MAX_DOC_REF_SEQUENCE:
+        raise ValueError(
+            f"DocRefId sequence must be between 0 and {MAX_DOC_REF_SEQUENCE}."
+        )
+    doc_ref_id = (
+        f"{_doc_ref_prefix(settings)}"
+        f"{sequence:0{DOC_REF_SEQUENCE_WIDTH}d}"
     )
-    digest = hashlib.sha256(source.encode("utf-8")).hexdigest()[:12]
-    return (
-        f"{settings.reporting_fi_country}{reporting_year(settings)}"
-        f"{_clean(settings.sending_company_in)}-FI-{digest}"
-    )[:200]
+    if len(doc_ref_id) > 200:
+        raise ValueError("Generated DocRefId exceeds 200 characters.")
+    return doc_ref_id
+
+
+def make_reporting_fi_doc_ref_id(settings: ReportingSettings) -> str:
+    return make_doc_ref_id(settings, 0)
 
 
 def make_account_doc_ref_id(
-    record: AccountRecord, settings: ReportingSettings
+    settings: ReportingSettings, sequence: int
 ) -> str:
-    source = "|".join(
-        [
-            record.country,
-            reporting_year(settings),
-            settings.sending_company_in,
-            record.account_number,
-            str(record.row_number),
-            record.first_name,
-            record.surname,
-        ]
-    )
-    digest = hashlib.sha256(source.encode("utf-8")).hexdigest()[:12]
-    return (
-        f"{_clean(record.country, 2)}{reporting_year(settings)}"
-        f"{_clean(settings.sending_company_in)}-"
-        f"{_clean(record.account_number)}-{record.row_number}-{digest}"
-    )[:200]
+    if sequence < 1:
+        raise ValueError("Account DocRefId sequence must start at 1.")
+    return make_doc_ref_id(settings, sequence)

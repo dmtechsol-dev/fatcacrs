@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+import re
+from datetime import date
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 
 def to_camel(value: str) -> str:
@@ -28,6 +30,10 @@ class AccountRecord(ApiModel):
     country: str = ""
     tin: str = ""
     account_status: bool = False
+    dormant_account: bool = False
+    closed_account: bool = False
+    undocumented_account: bool = False
+    status_error: str = ""
     payment: str = ""
     account_balance: str = ""
     errors: list[str] = Field(default_factory=list)
@@ -44,7 +50,9 @@ class ReportingSettings(ApiModel):
     reporting_fi_country: str = "DM"
     transmitting_country: str = "DM"
     receiving_country: str = "DM"
+    tax_year: str = "2025"
     reporting_period: str = "2025-12-31"
+    message_ref_id: str = Field(default="", max_length=200)
     currency: str = Field(min_length=3, max_length=3)
     message_type_indic: Literal["CRS701", "CRS702", "CRS703"] = "CRS701"
     mode: Literal["production", "test"] = "production"
@@ -75,6 +83,40 @@ class ReportingSettings(ApiModel):
             raise ValueError("must be a three-letter currency code")
         return value
 
+    @field_validator("tax_year")
+    @classmethod
+    def validate_tax_year(cls, value: str) -> str:
+        value = value.strip()
+        if not re.fullmatch(r"\d{4}", value):
+            raise ValueError("must be exactly four digits")
+        return value
+
+    @field_validator("reporting_fi_tin")
+    @classmethod
+    def validate_reporting_fi_tin(cls, value: str) -> str:
+        normalized = re.sub(r"[^A-Za-z0-9]", "", value)
+        if not normalized:
+            raise ValueError("must contain at least one letter or digit")
+        if len(normalized) > 189:
+            raise ValueError(
+                "is too long for the required 200-character DocRefId"
+            )
+        return value
+
+    @model_validator(mode="after")
+    def validate_reporting_period_year(self):
+        try:
+            reporting_date = date.fromisoformat(self.reporting_period)
+        except ValueError as exc:
+            raise ValueError(
+                "reportingPeriod must be a date in YYYY-MM-DD format"
+            ) from exc
+        if str(reporting_date.year) != self.tax_year:
+            raise ValueError(
+                "taxYear must match the year in reportingPeriod"
+            )
+        return self
+
 
 class ValidationSummary(ApiModel):
     total_records: int = 0
@@ -84,6 +126,8 @@ class ValidationSummary(ApiModel):
     country_breakdown: dict[str, int] = Field(default_factory=dict)
     closed_accounts: int = 0
     open_accounts: int = 0
+    dormant_accounts: int = 0
+    undocumented_accounts: int = 0
     missing_tin: int = 0
     missing_dob: int = 0
     missing_balance: int = 0
@@ -98,12 +142,21 @@ class SchemaValidationResult(ApiModel):
     missing_imports: list[str] = Field(default_factory=list)
 
 
+class StatusMappingInfo(ApiModel):
+    account_status: str | None = None
+    dormant_account: str | None = None
+    closed_account: str | None = None
+    undocumented_account: str | None = None
+    warnings: list[str] = Field(default_factory=list)
+
+
 class UploadResponse(ApiModel):
     session_id: str
     file_name: str
     records: list[AccountRecord]
     summary: ValidationSummary
     schema_status: SchemaValidationResult
+    status_mapping: StatusMappingInfo
 
 
 class ValidateRequest(ApiModel):

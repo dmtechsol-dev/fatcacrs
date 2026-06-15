@@ -3,6 +3,7 @@ from fastapi.testclient import TestClient
 
 import backend.main as main_module
 from backend.main import app
+from backend.models import AccountRecord, SchemaValidationResult
 from backend.tests.conftest import workbook_bytes
 
 
@@ -78,3 +79,47 @@ def test_upload_endpoint_parses_workbook():
     payload = response.json()
     assert payload["summary"]["totalRecords"] == 1
     assert payload["records"][0]["rowNumber"] == 2
+    assert payload["statusMapping"]["accountStatus"] == "Account Status"
+
+
+def test_invalid_xsd_blocks_download_unless_draft_is_explicit(
+    monkeypatch, settings
+):
+    monkeypatch.setattr(
+        main_module,
+        "validate_xml",
+        lambda *_args: SchemaValidationResult(
+            status="invalid",
+            valid=False,
+            full_validation=True,
+            message="Generated XML failed XSD validation.",
+            errors=["Line 1: test schema failure"],
+        ),
+    )
+    record = AccountRecord(
+        row_number=2,
+        account_number="900",
+        first_name="A",
+        surname="B",
+        date_of_birth="1980-01-01",
+        address="A complete address",
+        country="GB",
+        tin="TIN-1",
+        payment="10",
+        account_balance="100",
+    )
+    request = {
+        "records": [record.model_dump(by_alias=True)],
+        "settings": settings.model_dump(by_alias=True),
+        "allowDraft": False,
+    }
+    client = TestClient(app)
+    blocked = client.post("/api/generate-xml", json=request)
+    assert blocked.status_code == 422
+    assert "Full XSD validation did not pass" in blocked.json()["detail"]["message"]
+
+    request["allowDraft"] = True
+    draft = client.post("/api/generate-xml", json=request)
+    assert draft.status_code == 200
+    assert draft.json()["draft"]
+    assert draft.json()["xml"]["fileName"].startswith("DRAFT_")

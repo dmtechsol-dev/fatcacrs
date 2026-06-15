@@ -14,6 +14,7 @@ import type {
   GenerationResult,
   SchemaValidation,
   Settings,
+  StatusMapping,
   Summary,
 } from "./types";
 
@@ -27,6 +28,8 @@ const emptySummary: Summary = {
   countryBreakdown: {},
   closedAccounts: 0,
   openAccounts: 0,
+  dormantAccounts: 0,
+  undocumentedAccounts: 0,
   missingTin: 0,
   missingDob: 0,
   missingBalance: 0,
@@ -51,7 +54,9 @@ const initialSettings: Settings = {
   reportingFiCountry: "DM",
   transmittingCountry: "DM",
   receivingCountry: "DM",
+  taxYear: "2025",
   reportingPeriod: "2025-12-31",
+  messageRefId: "",
   currency: "USD",
   messageTypeIndic: "CRS701",
   mode: "production",
@@ -60,6 +65,14 @@ const initialSettings: Settings = {
   defaultPaymentType: "CRS502",
   includeZeroPayments: false,
   interpretTrueAsClosed: true,
+};
+
+const initialStatusMapping: StatusMapping = {
+  accountStatus: null,
+  dormantAccount: null,
+  closedAccount: null,
+  undocumentedAccount: null,
+  warnings: [],
 };
 
 function errorMessage(error: unknown) {
@@ -75,6 +88,7 @@ export default function App() {
   const [records, setRecords] = useState<AccountRecord[]>([]);
   const [summary, setSummary] = useState(emptySummary);
   const [schemaStatus, setSchemaStatus] = useState(initialSchema);
+  const [statusMapping, setStatusMapping] = useState(initialStatusMapping);
   const [settings, setSettings] = useState(initialSettings);
   const [result, setResult] = useState<GenerationResult | null>(null);
   const [allowDraft, setAllowDraft] = useState(false);
@@ -91,6 +105,7 @@ export default function App() {
       setRecords(response.records);
       setSummary(response.summary);
       setSchemaStatus(response.schemaStatus);
+      setStatusMapping(response.statusMapping);
       setStep("settings");
     } catch (uploadError) {
       setError(errorMessage(uploadError));
@@ -127,6 +142,17 @@ export default function App() {
       setResult(response);
       setStep("preview");
     } catch (generationError) {
+      if (
+        generationError instanceof ApiError &&
+        generationError.payload.detail &&
+        typeof generationError.payload.detail !== "string" &&
+        !Array.isArray(generationError.payload.detail) &&
+        generationError.payload.detail.schemaValidation
+      ) {
+        setSchemaStatus(
+          generationError.payload.detail.schemaValidation,
+        );
+      }
       setError(errorMessage(generationError));
     } finally {
       setBusy(false);
@@ -190,6 +216,7 @@ export default function App() {
               onChange={setSettings}
               onContinue={handleValidate}
               settings={settings}
+              statusMapping={statusMapping}
             />
           )}
           {step === "validation" && (

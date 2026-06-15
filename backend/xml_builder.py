@@ -93,7 +93,14 @@ def build_xml(
     )
 
     reporting_group = add(body, NS_SFA_FTC, "ReportingGroup")
-    for record in records:
+    account_doc_ref_ids = [
+        make_account_doc_ref_id(settings, sequence)
+        for sequence in range(1, len(records) + 1)
+    ]
+    if len(account_doc_ref_ids) != len(set(account_doc_ref_ids)):
+        raise ValueError("Generated account DocRefId values are duplicated.")
+
+    for record, doc_ref_id in zip(records, account_doc_ref_ids):
         account_report = add(reporting_group, NS_SFA_FTC, "AccountReport")
         doc_spec = add(account_report, NS_SFA_FTC, "DocSpec")
         add(doc_spec, NS_SFA_FTC, "DocTypeIndic", doc_type)
@@ -101,12 +108,18 @@ def build_xml(
             doc_spec,
             NS_SFA_FTC,
             "DocRefId",
-            make_account_doc_ref_id(record, settings),
+            doc_ref_id,
         )
 
-        account_attrs = {"AccNumberType": "OECD605"}
-        if settings.interpret_true_as_closed and record.account_status:
-            account_attrs["ClosedAccount"] = "true"
+        closed_account = record.closed_account or (
+            settings.interpret_true_as_closed and record.account_status
+        )
+        account_attrs = {
+            "AccNumberType": "OECD605",
+            "UndocumentedAccount": str(record.undocumented_account).lower(),
+            "ClosedAccount": str(closed_account).lower(),
+            "DormantAccount": str(record.dormant_account).lower(),
+        }
         add(
             account_report,
             NS_SFA_FTC,

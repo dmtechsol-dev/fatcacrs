@@ -425,6 +425,52 @@ main {
   width: 17px;
 }
 
+.mapping-panel {
+  background: #f7f9f8;
+  border: 1px solid #dce4e1;
+  border-radius: 10px;
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+  padding: 16px;
+}
+
+.mapping-panel p {
+  color: #657579;
+  font-size: 12px;
+  margin: 5px 0 0;
+}
+
+.mapping-list {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.mapping-list span {
+  background: #fff;
+  border: 1px solid #d8e0dd;
+  border-radius: 7px;
+  color: #627276;
+  display: grid;
+  font-size: 11px;
+  gap: 3px;
+  padding: 9px;
+}
+
+.mapping-list span.mapped {
+  border-color: #9dceba;
+}
+
+.mapping-list b {
+  color: #29464b;
+}
+
+.mapping-warning {
+  color: #7a6025;
+  font-size: 12px;
+}
+
 .title-row {
   align-items: flex-start;
   display: flex;
@@ -435,7 +481,7 @@ main {
 .summary-grid {
   display: grid;
   gap: 12px;
-  grid-template-columns: repeat(9, minmax(105px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
   margin-bottom: 20px;
 }
 
@@ -664,6 +710,30 @@ main {
 .status.closed {
   background: #f1f0ed;
   color: #6c665b;
+}
+
+.status-controls {
+  display: grid;
+  gap: 5px;
+  min-width: 115px;
+}
+
+.status-controls label {
+  align-items: center;
+  color: #536569;
+  display: flex;
+  font-size: 10px;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.status-controls input {
+  accent-color: #1e635b;
+}
+
+.schema-errors {
+  margin: 4px 0 0;
+  padding-left: 18px;
 }
 
 .findings-cell {

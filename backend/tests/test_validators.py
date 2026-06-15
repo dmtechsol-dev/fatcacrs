@@ -38,3 +38,8 @@ def test_missing_balance_detected():
 def test_invalid_date_detected():
     result = validate_record(record(date_of_birth="31/31/2025"))
     assert any("YYYY-MM-DD" in error for error in result.errors)
+
+
+def test_invalid_status_mapping_is_blocking():
+    result = validate_record(record(status_error="Unsupported status value."))
+    assert "Unsupported status value." in result.errors

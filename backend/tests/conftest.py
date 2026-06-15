@@ -37,11 +37,11 @@ def settings():
     )
 
 
-def workbook_bytes(rows):
+def workbook_bytes(rows, headers=HEADERS):
     workbook = Workbook()
     sheet = workbook.active
     sheet.title = "Accounts to report - IRD"
-    sheet.append(HEADERS)
+    sheet.append(headers)
     for row in rows:
         sheet.append(row)
     output = BytesIO()

@@ -7,10 +7,10 @@
     <sfa_ftc:MessageType>FATCA-CRS</sfa_ftc:MessageType>
     <sfa_ftc:Warning>Generated from the attached workbook for local application verification.</sfa_ftc:Warning>
     <sfa_ftc:Contact>Local demonstration only</sfa_ftc:Contact>
-    <sfa_ftc:MessageRefId>DM2025DEMO12320260609191819943410</sfa_ftc:MessageRefId>
+    <sfa_ftc:MessageRefId>DM2025DEMO12320260615160933988646</sfa_ftc:MessageRefId>
     <sfa_ftc:MessageTypeIndic>CRS701</sfa_ftc:MessageTypeIndic>
     <sfa_ftc:ReportingPeriod>2025-12-31</sfa_ftc:ReportingPeriod>
-    <sfa_ftc:Timestamp>2026-06-09T19:18:19Z</sfa_ftc:Timestamp>
+    <sfa_ftc:Timestamp>2026-06-15T16:09:33Z</sfa_ftc:Timestamp>
   </oecd_ftc:MessageHeader>
   <oecd_ftc:MessageBody>
     <sfa_ftc:ReportingFI>
@@ -26,16 +26,16 @@
       </sfa_ftc:Address>
       <sfa_ftc:DocSpec>
         <sfa_ftc:DocTypeIndic>OECD11</sfa_ftc:DocTypeIndic>
-        <sfa_ftc:DocRefId>DM2025DEMO123-FI-cbff62743400</sfa_ftc:DocRefId>
+        <sfa_ftc:DocRefId>DM2025DMDEMOTIN00000</sfa_ftc:DocRefId>
       </sfa_ftc:DocSpec>
     </sfa_ftc:ReportingFI>
     <sfa_ftc:ReportingGroup>
       <sfa_ftc:AccountReport>
         <sfa_ftc:DocSpec>
           <sfa_ftc:DocTypeIndic>OECD11</sfa_ftc:DocTypeIndic>
-          <sfa_ftc:DocRefId>GB2025DEMO123-900-2-628cbb62e11f</sfa_ftc:DocRefId>
+          <sfa_ftc:DocRefId>DM2025DMDEMOTIN00001</sfa_ftc:DocRefId>
         </sfa_ftc:DocSpec>
-        <sfa_ftc:AccountNumber AccNumberType="OECD605">900</sfa_ftc:AccountNumber>
+        <sfa_ftc:AccountNumber AccNumberType="OECD605" UndocumentedAccount="false" ClosedAccount="false" DormantAccount="false">900</sfa_ftc:AccountNumber>
         <sfa_ftc:AccountHolder>
           <sfa_ftc:Individual>
             <sfa_ftc:ResCountryCode>GB</sfa_ftc:ResCountryCode>
@@ -57,18 +57,18 @@
       <sfa_ftc:AccountReport>
         <sfa_ftc:DocSpec>
           <sfa_ftc:DocTypeIndic>OECD11</sfa_ftc:DocTypeIndic>
-          <sfa_ftc:DocRefId>NL2025DEMO123-1742-3-0dc5ee0299a2</sfa_ftc:DocRefId>
+          <sfa_ftc:DocRefId>DM2025DMDEMOTIN00002</sfa_ftc:DocRefId>
         </sfa_ftc:DocSpec>
-        <sfa_ftc:AccountNumber AccNumberType="OECD605">1742</sfa_ftc:AccountNumber>
+        <sfa_ftc:AccountNumber AccNumberType="OECD605" UndocumentedAccount="false" ClosedAccount="false" DormantAccount="false">1742</sfa_ftc:AccountNumber>
         <sfa_ftc:AccountHolder>
           <sfa_ftc:Individual>
-            <sfa_ftc:ResCountryCode>NL</sfa_ftc:ResCountryCode>
+            <sfa_ftc:ResCountryCode>NZ</sfa_ftc:ResCountryCode>
             <sfa_ftc:Name>
               <sfa:FirstName>DUDLEY</sfa:FirstName>
               <sfa:LastName>LAROCQUE</sfa:LastName>
             </sfa_ftc:Name>
             <sfa_ftc:Address>
-              <sfa:CountryCode>NL</sfa:CountryCode>
+              <sfa:CountryCode>NZ</sfa:CountryCode>
               <sfa:AddressFree>TUNIS DRIVE #6, LOWER PRINCESS QUARTER</sfa:AddressFree>
             </sfa_ftc:Address>
             <sfa_ftc:BirthInfo>
@@ -81,9 +81,9 @@
       <sfa_ftc:AccountReport>
         <sfa_ftc:DocSpec>
           <sfa_ftc:DocTypeIndic>OECD11</sfa_ftc:DocTypeIndic>
-          <sfa_ftc:DocRefId>GB2025DEMO123-1882-4-8ddd092b6de9</sfa_ftc:DocRefId>
+          <sfa_ftc:DocRefId>DM2025DMDEMOTIN00003</sfa_ftc:DocRefId>
         </sfa_ftc:DocSpec>
-        <sfa_ftc:AccountNumber AccNumberType="OECD605">1882</sfa_ftc:AccountNumber>
+        <sfa_ftc:AccountNumber AccNumberType="OECD605" UndocumentedAccount="false" ClosedAccount="false" DormantAccount="false">1882</sfa_ftc:AccountNumber>
         <sfa_ftc:AccountHolder>
           <sfa_ftc:Individual>
             <sfa_ftc:ResCountryCode>GB</sfa_ftc:ResCountryCode>

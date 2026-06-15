@@ -16,29 +16,25 @@ No account data is sent to an external service.
 - `CRS701`, `CRS702`, and `CRS703` message indicators
 - One configurable payment type per account
 - Optional zero-payment output
+- Deterministic `DocRefId` values in
+  `country + tax year + Reporting FI TIN + five-digit sequence` format
+- Explicit dormant, closed, and undocumented account indicators
+- Optional operator-supplied `MessageRefId`
 - Local `.xlsx` parsing with `openpyxl`
 - XML generation and validation with `lxml`
 - Explicit draft export when full XSD validation cannot complete
 
 Organisation holders, controlling persons, nil reports, corrections, and FATCA
-records are intentionally left as later extensions.
+records are intentionally left as later extensions. `ControllingPerson` is
+therefore omitted for the currently supported individual account holder flow,
+as permitted by the XSD.
 
 ## Important Schema Status
 
-The supplied main schema directory does not contain
-`isofatcatypes_v1.1.xsd`, although both `FatcaCrsTypes_v2.2.xsd` and
-`stffatcatypes_v2.0.xsd` import it.
-
-The application therefore reports schema validation as **incomplete**. It does
-not claim that XML passed full XSD validation. To enable full validation, place
-the official file here:
-
-```text
-backend/schemas/isofatcatypes_v1.1.xsd
-```
-
-Then restart the backend. `GET /api/health` will report whether the complete
-schema set compiles.
+The complete MDES FC XML v2.2 schema bundle is stored in `backend/schemas`,
+including `isofatcatypes_v1.1.xsd`. `GET /api/health` reports schema readiness,
+and every generated XML document is validated against `FatcaCrs_v2.2.xsd`
+before a submission-ready download is created.
 
 ## Prerequisites
 
@@ -130,8 +126,24 @@ Warnings include missing TIN, missing DOB, zero balance, missing/zero payment,
 and short addresses.
 
 Data errors cannot be bypassed. Only an XSD failure or incomplete schema set can
-be exported through the explicit draft option. Draft XML filenames are prefixed
-with `DRAFT_`.
+be exported through the explicit developer/debug draft option. Draft XML
+filenames are prefixed with `DRAFT_`.
+
+Status columns are optional. The parser recognizes `Account Status`, `Dormant`,
+`IsDormant`, `Closed`, `IsClosed`, `Undocumented`, and `IsUndocumented`
+variants. Values such as `Yes/No`, `Y/N`, `TRUE/FALSE`, `1/0`, `Dormant`,
+`Closed`, and `Undocumented` are normalized. Missing indicators default to
+`false`, and all three XSD attributes are written on every `AccountNumber`.
+
+Account report document references use this format:
+
+```text
+DM2025<REPORTING_FI_TIN><SEQUENCE>
+```
+
+The Reporting FI document uses sequence `00000`; reportable accounts start at
+`00001`. Non-alphanumeric characters are removed from the TIN only for this
+identifier.
 
 ## Tests
 
@@ -142,9 +154,10 @@ npm run lint
 npm run build
 ```
 
-The backend tests cover workbook parsing, summary-row removal, country/balance
-validation, date conversion, well-formed XML, unique `DocRefId` values, XSD
-success/failure, missing import detection, and API upload/health behavior.
+The backend tests cover workbook parsing, status aliases/defaults, missing
+columns, country/balance validation, date conversion, exact and unique
+`DocRefId` values, required XML sections, full XSD validation, missing import
+detection, and API upload/health behavior.
 
 ## Rebuild Sample Artifacts
 

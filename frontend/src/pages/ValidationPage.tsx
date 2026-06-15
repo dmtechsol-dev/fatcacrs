@@ -69,6 +69,13 @@ export function ValidationPage({
             Missing: <code>{schemaStatus.missingImports.join(", ")}</code>
           </span>
         )}
+        {!!schemaStatus.errors.length && (
+          <ul className="schema-errors">
+            {schemaStatus.errors.map((schemaError) => (
+              <li key={schemaError}>{schemaError}</li>
+            ))}
+          </ul>
+        )}
       </div>
 
       <ValidationTable records={records} onChange={onRecordsChange} />
@@ -82,8 +89,9 @@ export function ValidationPage({
             type="checkbox"
           />
           <span>
-            Export a clearly marked draft even though full XSD validation
-            cannot complete. This file is not submission-ready.
+            Developer/debug option: export a clearly marked draft even though
+            full XSD validation cannot complete. This file is not
+            submission-ready.
           </span>
         </label>
       )}

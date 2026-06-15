@@ -1,10 +1,9 @@
 Attached Workbook Validation Summary
 ======================================
-Total records: 551
-Valid records: 548
-Error records: 3
-Warning records: 551
+Total records: 549
+Valid records: 549
+Error records: 0
+Warning records: 549
 Sample XML records: 3
-Schema status: incomplete
-Full XSD validation cannot complete until the missing schema import(s) are provided.
-Missing imports: isofatcatypes_v1.1.xsd
+Schema status: valid
+Generated XML is well-formed and valid against the XSD set.

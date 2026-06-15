@@ -11,6 +11,8 @@ const cards: Array<[keyof Summary, string, string]> = [
   ["warningRecords", "Warning records", "warning"],
   ["closedAccounts", "Closed accounts", "neutral"],
   ["openAccounts", "Open accounts", "neutral"],
+  ["dormantAccounts", "Dormant accounts", "neutral"],
+  ["undocumentedAccounts", "Undocumented", "warning"],
   ["missingTin", "Missing TIN", "warning"],
   ["missingDob", "Missing DOB", "warning"],
   ["missingBalance", "Missing balance", "danger"],

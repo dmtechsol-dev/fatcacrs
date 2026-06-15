@@ -19,7 +19,7 @@ from backend.config import (
     REQUIRE_FRONTEND,
     ROOT_SCHEMA,
 )
-from backend.excel_parser import parse_excel_bytes
+from backend.excel_parser import parse_excel_with_metadata
 from backend.models import (
     DownloadArtifact,
     GenerateRequest,
@@ -121,10 +121,10 @@ async def upload_excel(file: UploadFile = File(...)):
         raise HTTPException(status_code=400, detail="Upload an .xlsx workbook.")
     content = await file.read()
     try:
-        parsed = parse_excel_bytes(content)
+        parsed_workbook = parse_excel_with_metadata(content)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
-    validated = validate_records(parsed)
+    validated = validate_records(parsed_workbook.records)
     session_id = uuid4().hex
     SESSIONS[session_id] = {
         "file_name": file.filename,
@@ -136,6 +136,7 @@ async def upload_excel(file: UploadFile = File(...)):
         records=validated,
         summary=build_summary(validated),
         schema_status=schema_readiness(ROOT_SCHEMA),
+        status_mapping=parsed_workbook.status_mapping,
     )
 
 
@@ -207,7 +208,13 @@ def generate_xml(request: GenerateRequest):
             },
         )
 
-    xml_content, message_ref_id = build_xml(records, request.settings)
+    try:
+        xml_content, message_ref_id = build_xml(records, request.settings)
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Cannot generate XML: {exc}",
+        ) from exc
     schema_validation = validate_xml(xml_content, ROOT_SCHEMA)
     if not schema_validation.valid and not request.allow_draft:
         raise HTTPException(

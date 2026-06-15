@@ -8,6 +8,10 @@ export type AccountRecord = {
   country: string;
   tin: string;
   accountStatus: boolean;
+  dormantAccount: boolean;
+  closedAccount: boolean;
+  undocumentedAccount: boolean;
+  statusError: string;
   payment: string;
   accountBalance: string;
   errors: string[];
@@ -22,6 +26,8 @@ export type Summary = {
   countryBreakdown: Record<string, number>;
   closedAccounts: number;
   openAccounts: number;
+  dormantAccounts: number;
+  undocumentedAccounts: number;
   missingTin: number;
   missingDob: number;
   missingBalance: number;
@@ -46,7 +52,9 @@ export type Settings = {
   reportingFiCountry: string;
   transmittingCountry: string;
   receivingCountry: string;
+  taxYear: string;
   reportingPeriod: string;
+  messageRefId: string;
   currency: string;
   messageTypeIndic: "CRS701" | "CRS702" | "CRS703";
   mode: "production" | "test";
@@ -55,6 +63,14 @@ export type Settings = {
   defaultPaymentType: "CRS501" | "CRS502" | "CRS503" | "CRS504";
   includeZeroPayments: boolean;
   interpretTrueAsClosed: boolean;
+};
+
+export type StatusMapping = {
+  accountStatus: string | null;
+  dormantAccount: string | null;
+  closedAccount: string | null;
+  undocumentedAccount: string | null;
+  warnings: string[];
 };
 
 export type Artifact = {

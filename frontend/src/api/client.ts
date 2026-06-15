@@ -3,13 +3,17 @@ import type {
   GenerationResult,
   SchemaValidation,
   Settings,
+  StatusMapping,
   Summary,
 } from "../types";
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "";
 
 type ApiErrorPayload = {
-  detail?: string | { message?: string; schemaValidation?: SchemaValidation };
+  detail?:
+    | string
+    | Array<{ loc?: Array<string | number>; msg?: string }>
+    | { message?: string; schemaValidation?: SchemaValidation };
 };
 
 export class ApiError extends Error {
@@ -27,10 +31,25 @@ async function readResponse<T>(response: Response): Promise<T> {
   }
   const payload = (await response.json().catch(() => ({}))) as ApiErrorPayload;
   const detail = payload.detail;
-  const message =
+  let message =
     typeof detail === "string"
       ? detail
-      : detail?.message ?? `Request failed with status ${response.status}.`;
+      : Array.isArray(detail)
+        ? detail
+            .map((item) => {
+              const field = item.loc?.slice(1).join(".");
+              return `${field ? `${field}: ` : ""}${item.msg ?? "Invalid value."}`;
+            })
+            .join(" ")
+        : detail?.message ?? `Request failed with status ${response.status}.`;
+  if (
+    detail &&
+    typeof detail !== "string" &&
+    !Array.isArray(detail) &&
+    detail.schemaValidation?.errors.length
+  ) {
+    message = `${message} ${detail.schemaValidation.errors.slice(0, 3).join(" ")}`;
+  }
   throw new ApiError(message, payload);
 }
 
@@ -43,6 +62,7 @@ export async function uploadExcel(file: File) {
     records: AccountRecord[];
     summary: Summary;
     schemaStatus: SchemaValidation;
+    statusMapping: StatusMapping;
   }>(
     await fetch(`${API_BASE}/api/upload-excel`, {
       method: "POST",

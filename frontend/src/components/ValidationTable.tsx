@@ -9,6 +9,10 @@ type EditableField =
   | "accountBalance"
   | "address"
   | "payment";
+type StatusField =
+  | "dormantAccount"
+  | "closedAccount"
+  | "undocumentedAccount";
 
 type Props = {
   records: AccountRecord[];
@@ -49,6 +53,27 @@ export function ValidationTable({ records, onChange }: Props) {
   function chooseFilter(value: Filter) {
     setFilter(value);
     setPage(1);
+  }
+
+  function updateStatus(
+    rowNumber: number,
+    field: StatusField,
+    checked: boolean,
+  ) {
+    onChange(
+      records.map((record) => {
+        if (record.rowNumber !== rowNumber) return record;
+        return {
+          ...record,
+          [field]: checked,
+          accountStatus:
+            field === "closedAccount" && !checked
+              ? false
+              : record.accountStatus,
+          statusError: "",
+        };
+      }),
+    );
   }
 
   return (
@@ -172,13 +197,34 @@ export function ValidationTable({ records, onChange }: Props) {
                   />
                 </td>
                 <td>
-                  <span
-                    className={
-                      record.accountStatus ? "status closed" : "status open"
-                    }
-                  >
-                    {record.accountStatus ? "Closed" : "Open"}
-                  </span>
+                  <div className="status-controls">
+                    {(
+                      [
+                        ["dormantAccount", "Dormant"],
+                        ["closedAccount", "Closed"],
+                        ["undocumentedAccount", "Undocumented"],
+                      ] as Array<[StatusField, string]>
+                    ).map(([field, label]) => (
+                      <label key={field}>
+                        <input
+                          checked={
+                            field === "closedAccount"
+                              ? record.closedAccount || record.accountStatus
+                              : record[field]
+                          }
+                          onChange={(event) =>
+                            updateStatus(
+                              record.rowNumber,
+                              field,
+                              event.target.checked,
+                            )
+                          }
+                          type="checkbox"
+                        />
+                        {label}
+                      </label>
+                    ))}
+                  </div>
                 </td>
                 <td className="findings-cell">
                   {record.errors.map((error) => (

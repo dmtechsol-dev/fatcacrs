@@ -1,8 +1,9 @@
 from lxml import etree
 
-from backend.config import NS_SFA_FTC
+from backend.config import NS_SFA_FTC, ROOT_SCHEMA
 from backend.models import AccountRecord
 from backend.xml_builder import build_xml
+from backend.xsd_validator import validate_xml
 
 
 def sample_record(row_number: int, account: str):
@@ -32,6 +33,8 @@ def test_xml_is_well_formed_and_uses_expected_elements(settings):
     account_number = root.find(f".//{{{NS_SFA_FTC}}}AccountNumber")
     assert account_number is not None
     assert account_number.get("ClosedAccount") == "true"
+    assert account_number.get("DormantAccount") == "false"
+    assert account_number.get("UndocumentedAccount") == "false"
 
 
 def test_doc_ref_ids_are_unique(settings):
@@ -45,4 +48,54 @@ def test_doc_ref_ids_are_unique(settings):
         for element in root.xpath("//*[local-name()='DocRefId']")
     ]
     assert len(refs) == len(set(refs))
-    assert all(len(ref) < 200 for ref in refs if ref)
+    assert refs == [
+        "DM2025DMTIN00100000",
+        "DM2025DMTIN00100001",
+        "DM2025DMTIN00100002",
+    ]
+
+
+def test_required_template_elements_and_statuses_validate(settings):
+    record = sample_record(2, "A-1").model_copy(
+        update={
+            "account_status": False,
+            "closed_account": True,
+            "dormant_account": True,
+            "undocumented_account": True,
+        }
+    )
+    content, _ = build_xml([record], settings)
+    root = etree.fromstring(content)
+
+    required_paths = [
+        "MessageHeader/SendingCompanyIN",
+        "MessageHeader/MessageRefId",
+        "MessageHeader/ReportingPeriod",
+        "MessageBody/ReportingFI/TIN",
+        "MessageBody/ReportingFI/DocSpec/DocTypeIndic",
+        "MessageBody/ReportingFI/DocSpec/DocRefId",
+        "MessageBody/ReportingGroup/AccountReport/DocSpec/DocTypeIndic",
+        "MessageBody/ReportingGroup/AccountReport/DocSpec/DocRefId",
+        "MessageBody/ReportingGroup/AccountReport/AccountNumber",
+        "MessageBody/ReportingGroup/AccountReport/AccountHolder/Individual/Name",
+        "MessageBody/ReportingGroup/AccountReport/AccountHolder/Individual/Address",
+        "MessageBody/ReportingGroup/AccountReport/AccountBalance",
+        "MessageBody/ReportingGroup/AccountReport/Payment",
+    ]
+    for path in required_paths:
+        local_path = ".//" + "/".join(
+            f"*[local-name()='{part}']" for part in path.split("/")
+        )
+        assert root.xpath(local_path), path
+
+    account_number = root.xpath(
+        "//*[local-name()='AccountNumber']"
+    )[0]
+    assert account_number.attrib == {
+        "AccNumberType": "OECD605",
+        "UndocumentedAccount": "true",
+        "ClosedAccount": "true",
+        "DormantAccount": "true",
+    }
+    schema_result = validate_xml(content, ROOT_SCHEMA)
+    assert schema_result.valid, schema_result.errors

@@ -1,7 +1,8 @@
-import type { Settings } from "../types";
+import type { Settings, StatusMapping } from "../types";
 
 type Props = {
   settings: Settings;
+  statusMapping: StatusMapping;
   onChange: (settings: Settings) => void;
   onBack: () => void;
   onContinue: () => void;
@@ -36,11 +37,17 @@ const fields: Array<{
   { key: "reportingFiCountry", label: "Reporting FI country", required: true },
   { key: "transmittingCountry", label: "TransmittingCountry", required: true },
   { key: "receivingCountry", label: "ReceivingCountry", required: true },
+  { key: "taxYear", label: "Tax year", required: true },
   {
     key: "reportingPeriod",
     label: "ReportingPeriod",
     type: "date",
     required: true,
+  },
+  {
+    key: "messageRefId",
+    label: "MessageRefId (optional)",
+    placeholder: "Generated automatically when blank",
   },
   { key: "currency", label: "Currency", placeholder: "USD", required: true },
   { key: "contact", label: "Contact (optional)" },
@@ -49,6 +56,7 @@ const fields: Array<{
 
 export function SettingsPage({
   settings,
+  statusMapping,
   onChange,
   onBack,
   onContinue,
@@ -81,7 +89,9 @@ export function SettingsPage({
             </span>
             <input
               maxLength={
-                field.key.toLowerCase().includes("country") ||
+                field.key === "taxYear"
+                  ? 4
+                  : field.key.toLowerCase().includes("country") ||
                 field.key === "reportingFiTinIssuedBy"
                   ? 2
                   : field.key === "currency"
@@ -174,6 +184,33 @@ export function SettingsPage({
             Interpret Account Status true as closed
           </label>
         </div>
+      </div>
+      <div className="mapping-panel">
+        <div>
+          <strong>Detected account status columns</strong>
+          <p>
+            Missing indicators default to <code>false</code>. The generated
+            AccountNumber always includes all three XSD status attributes.
+          </p>
+        </div>
+        <div className="mapping-list">
+          {[
+            ["Account Status", statusMapping.accountStatus],
+            ["DormantAccount", statusMapping.dormantAccount],
+            ["ClosedAccount", statusMapping.closedAccount],
+            ["UndocumentedAccount", statusMapping.undocumentedAccount],
+          ].map(([label, source]) => (
+            <span className={source ? "mapped" : "unmapped"} key={label}>
+              <b>{label}</b>
+              {source ?? "Not detected"}
+            </span>
+          ))}
+        </div>
+        {statusMapping.warnings.map((warning) => (
+          <div className="mapping-warning" key={warning}>
+            {warning}
+          </div>
+        ))}
       </div>
       <div className="action-row">
         <button className="secondary" onClick={onBack} type="button">
