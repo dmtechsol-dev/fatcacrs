@@ -20,10 +20,12 @@ from backend.config import (
     ROOT_SCHEMA,
 )
 from backend.excel_parser import parse_excel_with_metadata
+from backend.financial_institution import resolve_financial_institution_in
 from backend.models import (
     DownloadArtifact,
     GenerateRequest,
     GenerationResponse,
+    ReportingSettings,
     UploadResponse,
     ValidateRequest,
     ValidationResponse,
@@ -78,6 +80,24 @@ app.add_middleware(
 SESSIONS: dict[str, dict] = {}
 
 
+def resolved_settings(
+    settings: ReportingSettings,
+    session_id: str | None,
+) -> ReportingSettings:
+    workbook_value = None
+    if session_id and session_id in SESSIONS:
+        workbook_value = SESSIONS[session_id].get(
+            "financial_institution_in"
+        )
+    financial_institution_in = resolve_financial_institution_in(
+        workbook_value,
+        settings.financial_institution_in,
+    )
+    return settings.model_copy(
+        update={"financial_institution_in": financial_institution_in}
+    )
+
+
 def health_payload():
     return {
         "status": "ok",
@@ -128,11 +148,17 @@ async def upload_excel(file: UploadFile = File(...)):
     session_id = uuid4().hex
     SESSIONS[session_id] = {
         "file_name": file.filename,
+        "financial_institution_in": (
+            parsed_workbook.financial_institution_in
+        ),
         "records": [record.model_dump() for record in validated],
     }
     return UploadResponse(
         session_id=session_id,
         file_name=file.filename,
+        financial_institution_in=(
+            parsed_workbook.financial_institution_in
+        ),
         records=validated,
         summary=build_summary(validated),
         schema_status=schema_readiness(ROOT_SCHEMA),
@@ -142,7 +168,23 @@ async def upload_excel(file: UploadFile = File(...)):
 
 @app.post("/api/validate", response_model=ValidationResponse)
 def validate(request: ValidateRequest):
-    records = validate_records(request.records, request.settings)
+    settings = request.settings
+    if settings is not None:
+        try:
+            settings = resolved_settings(settings, request.session_id)
+        except ValueError as exc:
+            records = validate_records(request.records)
+            message = f"Cannot generate DocRefId: {exc}"
+            records = [
+                record.model_copy(
+                    update={"errors": [*record.errors, message]}
+                )
+                for record in records
+            ]
+        else:
+            records = validate_records(request.records, settings)
+    else:
+        records = validate_records(request.records)
     if request.session_id and request.session_id in SESSIONS:
         SESSIONS[request.session_id]["records"] = [
             record.model_dump() for record in records
@@ -189,7 +231,14 @@ def text_report(payload: dict) -> str:
 
 @app.post("/api/generate-xml", response_model=GenerationResponse)
 def generate_xml(request: GenerateRequest):
-    records = validate_records(request.records, request.settings)
+    try:
+        settings = resolved_settings(request.settings, request.session_id)
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Cannot generate XML: {exc}",
+        ) from exc
+    records = validate_records(request.records, settings)
     data_errors = [
         {
             "rowNumber": record.row_number,
@@ -209,7 +258,7 @@ def generate_xml(request: GenerateRequest):
         )
 
     try:
-        xml_content, message_ref_id = build_xml(records, request.settings)
+        xml_content, message_ref_id = build_xml(records, settings)
     except ValueError as exc:
         raise HTTPException(
             status_code=422,
@@ -250,7 +299,7 @@ def generate_xml(request: GenerateRequest):
         ".json", json.dumps(report, indent=2, ensure_ascii=True)
     )
     text_id = write_artifact(".txt", text_report(report))
-    year = request.settings.reporting_period[:4]
+    year = settings.reporting_period[:4]
     prefix = "DRAFT_" if draft else ""
     return GenerationResponse(
         message_ref_id=message_ref_id,

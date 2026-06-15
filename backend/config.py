@@ -20,6 +20,16 @@ REQUIRE_FRONTEND = os.getenv("REQUIRE_FRONTEND", "").lower() in {
 }
 
 EXPECTED_SHEET = "Accounts to report - IRD"
+FINANCIAL_INSTITUTION_IN_COLUMNS = {
+    "financial institution in",
+    "financial institution's in",
+    "financial institution identification number",
+    "financialinstitutionin",
+    "fi in",
+    "fiin",
+    "institution in",
+    "reporting fi in",
+}
 EXPECTED_COLUMNS = {
     "account #": "account_number",
     "account number": "account_number",

@@ -1,5 +1,6 @@
 {
   "sendingCompanyIn": "DEMO123",
+  "financialInstitutionIn": "FIIN",
   "reportingFiTin": "DM-DEMO-TIN",
   "reportingFiTinIssuedBy": "DM",
   "reportingFiName": "Example Reporting Financial Institution",

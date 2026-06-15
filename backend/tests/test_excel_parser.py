@@ -219,3 +219,80 @@ def test_missing_required_excel_field_is_reported():
     ]
     with pytest.raises(ValueError, match="surname"):
         parse_excel_bytes(workbook_bytes([], headers=headers))
+
+
+def test_financial_institution_in_is_read_from_workbook_column():
+    headers = [*HEADERS, "Financial Institution IN"]
+    content = workbook_bytes(
+        [
+            [
+                900,
+                "A",
+                "B",
+                None,
+                "A complete address",
+                "GB",
+                "TIN-1",
+                "FALSE",
+                0,
+                1,
+                "fiin",
+            ]
+        ],
+        headers=headers,
+    )
+    result = parse_excel_with_metadata(content)
+    assert result.financial_institution_in == "FIIN"
+
+
+def test_conflicting_workbook_financial_institution_ins_are_rejected():
+    headers = [*HEADERS, "FI IN"]
+    rows = [
+        [
+            900,
+            "A",
+            "B",
+            None,
+            "A complete address",
+            "GB",
+            "TIN-1",
+            "FALSE",
+            0,
+            1,
+            "FIIN1",
+        ],
+        [
+            901,
+            "C",
+            "D",
+            None,
+            "Another complete address",
+            "GB",
+            "TIN-2",
+            "TRUE",
+            0,
+            2,
+            "FIIN2",
+        ],
+    ]
+    with pytest.raises(ValueError, match="multiple financial institution IN"):
+        parse_excel_with_metadata(workbook_bytes(rows, headers=headers))
+
+
+def test_invalid_workbook_financial_institution_in_is_rejected():
+    headers = [*HEADERS, "FIIN"]
+    row = [
+        900,
+        "A",
+        "B",
+        None,
+        "A complete address",
+        "GB",
+        "TIN-1",
+        "FALSE",
+        0,
+        1,
+        "FI-IN",
+    ]
+    with pytest.raises(ValueError, match="letters and digits only"):
+        parse_excel_with_metadata(workbook_bytes([row], headers=headers))

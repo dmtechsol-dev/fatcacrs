@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from backend.models import ReportingSettings
 
 
-DOC_REF_SEQUENCE_WIDTH = 5
+DOC_REF_SEQUENCE_WIDTH = 6
 MAX_DOC_REF_SEQUENCE = (10**DOC_REF_SEQUENCE_WIDTH) - 1
 
 
@@ -29,14 +29,14 @@ def make_message_ref_id(settings: ReportingSettings) -> str:
 
 def _doc_ref_prefix(settings: ReportingSettings) -> str:
     country = re.sub(r"[^A-Za-z0-9]", "", settings.reporting_fi_country).upper()
-    tin = re.sub(r"[^A-Za-z0-9]", "", settings.reporting_fi_tin).upper()
+    financial_institution_in = settings.financial_institution_in
     if len(country) != 2:
         raise ValueError("Reporting country must contain exactly two letters.")
-    if not tin:
-        raise ValueError(
-            "Reporting FI TIN must contain at least one letter or digit."
-        )
-    return f"{country}{reporting_year(settings)}{tin}"
+    if not financial_institution_in:
+        raise ValueError("Financial institution IN has not been resolved.")
+    return (
+        f"{country}{reporting_year(settings)}{financial_institution_in}"
+    )
 
 
 def make_doc_ref_id(settings: ReportingSettings, sequence: int) -> str:

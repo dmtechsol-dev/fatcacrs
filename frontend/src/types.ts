@@ -44,6 +44,7 @@ export type SchemaValidation = {
 
 export type Settings = {
   sendingCompanyIn: string;
+  financialInstitutionIn: string;
   reportingFiTin: string;
   reportingFiTinIssuedBy: string;
   reportingFiName: string;

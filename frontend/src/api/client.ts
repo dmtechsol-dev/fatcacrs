@@ -59,6 +59,7 @@ export async function uploadExcel(file: File) {
   return readResponse<{
     sessionId: string;
     fileName: string;
+    financialInstitutionIn: string | null;
     records: AccountRecord[];
     summary: Summary;
     schemaStatus: SchemaValidation;

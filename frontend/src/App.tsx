@@ -46,6 +46,7 @@ const initialSchema: SchemaValidation = {
 
 const initialSettings: Settings = {
   sendingCompanyIn: "",
+  financialInstitutionIn: "",
   reportingFiTin: "",
   reportingFiTinIssuedBy: "DM",
   reportingFiName: "",
@@ -105,6 +106,12 @@ export default function App() {
       setSummary(response.summary);
       setSchemaStatus(response.schemaStatus);
       setStatusMapping(response.statusMapping);
+      if (response.financialInstitutionIn) {
+        setSettings((current) => ({
+          ...current,
+          financialInstitutionIn: response.financialInstitutionIn ?? "",
+        }));
+      }
       setStep("settings");
     } catch (uploadError) {
       setError(errorMessage(uploadError));

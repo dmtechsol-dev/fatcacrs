@@ -24,6 +24,7 @@ HEADERS = [
 def settings():
     return ReportingSettings(
         sending_company_in="DEMO123",
+        financial_institution_in="FIIN",
         reporting_fi_tin="DM-TIN-001",
         reporting_fi_tin_issued_by="DM",
         reporting_fi_name="Example Reporting Financial Institution",

@@ -81,6 +81,145 @@ def test_upload_endpoint_parses_workbook():
     assert payload["summary"]["totalRecords"] == 1
     assert payload["records"][0]["rowNumber"] == 2
     assert payload["statusMapping"]["accountStatus"] == "Account Status"
+    assert payload["financialInstitutionIn"] is None
+
+
+def test_workbook_fi_in_takes_priority_for_doc_ref_ids(
+    monkeypatch, settings
+):
+    monkeypatch.setenv("FINANCIAL_INSTITUTION_IN", "ENVIN")
+    headers = [*HEADERS, "Financial Institution IN"]
+    content = workbook_bytes(
+        [
+            [
+                900,
+                "A",
+                "B",
+                "1980-01-01",
+                "A complete address",
+                "GB",
+                "TIN-1",
+                "FALSE",
+                10,
+                100,
+                "WORKBOOKIN",
+            ]
+        ],
+        headers=headers,
+    )
+    client = TestClient(app)
+    upload = client.post(
+        "/api/upload-excel",
+        files={
+            "file": (
+                "accounts.xlsx",
+                content,
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            )
+        },
+    )
+    assert upload.status_code == 200
+    payload = upload.json()
+    configured = settings.model_copy(
+        update={"financial_institution_in": "APPIN"}
+    )
+    generation = client.post(
+        "/api/generate-xml",
+        json={
+            "sessionId": payload["sessionId"],
+            "records": payload["records"],
+            "settings": configured.model_dump(by_alias=True),
+        },
+    )
+    assert generation.status_code == 200
+    refs = etree.fromstring(
+        generation.json()["xmlPreview"].encode()
+    ).xpath("//*[local-name()='DocRefId']/text()")
+    assert refs == [
+        "DM2025WORKBOOKIN000000",
+        "DM2025WORKBOOKIN000001",
+    ]
+
+
+def test_app_setting_fi_in_takes_priority_over_environment(
+    monkeypatch, settings
+):
+    monkeypatch.setenv("FINANCIAL_INSTITUTION_IN", "ENVIN")
+    record = AccountRecord(
+        row_number=2,
+        account_number="900",
+        first_name="A",
+        surname="B",
+        date_of_birth="1980-01-01",
+        address="A complete address",
+        country="GB",
+        tin="TIN-1",
+        payment="10",
+        account_balance="100",
+    )
+    generation = TestClient(app).post(
+        "/api/generate-xml",
+        json={
+            "records": [record.model_dump(by_alias=True)],
+            "settings": settings.model_dump(by_alias=True),
+        },
+    )
+    assert generation.status_code == 200
+    assert "DM2025FIIN000001" in generation.json()["xmlPreview"]
+
+
+def test_environment_fi_in_is_used_as_final_fallback(monkeypatch, settings):
+    monkeypatch.setenv("FINANCIAL_INSTITUTION_IN", "ENVIN")
+    configured = settings.model_copy(
+        update={"financial_institution_in": ""}
+    )
+    record = AccountRecord(
+        row_number=2,
+        account_number="900",
+        first_name="A",
+        surname="B",
+        date_of_birth="1980-01-01",
+        address="A complete address",
+        country="GB",
+        tin="TIN-1",
+        payment="10",
+        account_balance="100",
+    )
+    generation = TestClient(app).post(
+        "/api/generate-xml",
+        json={
+            "records": [record.model_dump(by_alias=True)],
+            "settings": configured.model_dump(by_alias=True),
+        },
+    )
+    assert generation.status_code == 200
+    assert "DM2025ENVIN000001" in generation.json()["xmlPreview"]
+
+
+def test_missing_fi_in_blocks_generation(monkeypatch, settings):
+    monkeypatch.delenv("FINANCIAL_INSTITUTION_IN", raising=False)
+    configured = settings.model_copy(
+        update={"financial_institution_in": ""}
+    )
+    record = AccountRecord(
+        row_number=2,
+        account_number="900",
+        first_name="A",
+        surname="B",
+        address="A complete address",
+        country="GB",
+        payment="10",
+        account_balance="100",
+    )
+    response = TestClient(app).post(
+        "/api/generate-xml",
+        json={
+            "records": [record.model_dump(by_alias=True)],
+            "settings": configured.model_dump(by_alias=True),
+        },
+    )
+    assert response.status_code == 422
+    assert "Financial institution IN is required" in response.json()["detail"]
 
 
 def test_invalid_xsd_blocks_download_unless_draft_is_explicit(

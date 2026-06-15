@@ -49,9 +49,9 @@ def test_doc_ref_ids_are_unique(settings):
     ]
     assert len(refs) == len(set(refs))
     assert refs == [
-        "DM2025DMTIN00100000",
-        "DM2025DMTIN00100001",
-        "DM2025DMTIN00100002",
+        "DM2025FIIN000000",
+        "DM2025FIIN000001",
+        "DM2025FIIN000002",
     ]
 
 

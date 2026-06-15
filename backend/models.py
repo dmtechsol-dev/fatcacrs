@@ -6,6 +6,8 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
+from backend.financial_institution import normalize_financial_institution_in
+
 
 def to_camel(value: str) -> str:
     first, *rest = value.split("_")
@@ -42,6 +44,7 @@ class AccountRecord(ApiModel):
 
 class ReportingSettings(ApiModel):
     sending_company_in: str = Field(min_length=1, max_length=200)
+    financial_institution_in: str = Field(default="", max_length=188)
     reporting_fi_tin: str = Field(min_length=1, max_length=200)
     reporting_fi_tin_issued_by: str = "DM"
     reporting_fi_name: str = Field(min_length=1, max_length=200)
@@ -102,6 +105,16 @@ class ReportingSettings(ApiModel):
             )
         return value
 
+    @field_validator("financial_institution_in")
+    @classmethod
+    def validate_financial_institution_in(cls, value: str) -> str:
+        if not value:
+            return ""
+        return normalize_financial_institution_in(
+            value,
+            source="Configured financial institution IN",
+        )
+
     @model_validator(mode="after")
     def validate_reporting_period_year(self):
         try:
@@ -152,6 +165,7 @@ class StatusMappingInfo(ApiModel):
 class UploadResponse(ApiModel):
     session_id: str
     file_name: str
+    financial_institution_in: str | None = None
     records: list[AccountRecord]
     summary: ValidationSummary
     schema_status: SchemaValidationResult

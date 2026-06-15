@@ -17,7 +17,7 @@ No account data is sent to an external service.
 - One configurable payment type per account
 - Optional zero-payment output
 - Deterministic `DocRefId` values in
-  `country + tax year + Reporting FI TIN + five-digit sequence` format
+  `country + tax year + financial institution IN + six-digit sequence` format
 - Explicit dormant, closed, and undocumented account indicators
 - Optional operator-supplied `MessageRefId`
 - Local `.xlsx` parsing with `openpyxl`
@@ -143,12 +143,14 @@ attributes are written on every `AccountNumber`.
 Account report document references use this format:
 
 ```text
-DM2025<REPORTING_FI_TIN><SEQUENCE>
+DM2025<FINANCIAL_INSTITUTION_IN><SEQUENCE>
 ```
 
-The Reporting FI document uses sequence `00000`; reportable accounts start at
-`00001`. Non-alphanumeric characters are removed from the TIN only for this
-identifier.
+The Reporting FI document uses sequence `000000`; reportable accounts start at
+`000001`. The financial institution IN is resolved from an uploaded workbook
+column, the app settings field, or `FINANCIAL_INSTITUTION_IN`, in that order.
+It must contain only letters and digits; invalid characters are rejected
+rather than silently removed.
 
 ## Tests
 

@@ -24,6 +24,11 @@ const fields: Array<{
   required?: boolean;
 }> = [
   { key: "sendingCompanyIn", label: "SendingCompanyIN", required: true },
+  {
+    key: "financialInstitutionIn",
+    label: "Financial institution IN (DocRefId)",
+    placeholder: "Uses uploaded workbook or server environment when blank",
+  },
   { key: "reportingFiTin", label: "Reporting FI TIN", required: true },
   {
     key: "reportingFiTinIssuedBy",
@@ -90,6 +95,8 @@ export function SettingsPage({
               maxLength={
                 field.key === "taxYear"
                   ? 4
+                  : field.key === "financialInstitutionIn"
+                    ? 188
                   : field.key.toLowerCase().includes("country") ||
                 field.key === "reportingFiTinIssuedBy"
                   ? 2
@@ -103,6 +110,7 @@ export function SettingsPage({
                   (
                     field.key.toLowerCase().includes("country") ||
                     field.key === "reportingFiTinIssuedBy" ||
+                    field.key === "financialInstitutionIn" ||
                     field.key === "currency"
                       ? event.target.value.toUpperCase()
                       : event.target.value

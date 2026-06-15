@@ -21,6 +21,9 @@ This repository is a single deployable application:
 | Health check port | `8000` |
 | Publish directory | Leave empty |
 
+Set `FINANCIAL_INSTITUTION_IN` in the Coolify environment only when the FI IN
+will not be supplied by the uploaded workbook or the app settings screen.
+
 Do not use `main:app`. The ASGI application is defined in
 `backend/main.py`, so its import path is `backend.main:app`.
 

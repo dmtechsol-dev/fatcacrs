@@ -11,8 +11,10 @@ from openpyxl.utils.datetime import from_excel
 from backend.config import (
     EXPECTED_COLUMNS,
     EXPECTED_SHEET,
+    FINANCIAL_INSTITUTION_IN_COLUMNS,
     REQUIRED_ACCOUNT_FIELDS,
 )
+from backend.financial_institution import normalize_financial_institution_in
 from backend.models import AccountRecord, StatusMappingInfo
 
 
@@ -24,6 +26,7 @@ FALSE_VALUES = {"false", "no", "n", "0"}
 class WorkbookParseResult:
     records: list[AccountRecord]
     status_mapping: StatusMappingInfo
+    financial_institution_in: str | None = None
 
 
 def _text(value: Any) -> str:
@@ -155,7 +158,11 @@ def parse_excel_with_metadata(content: bytes) -> WorkbookParseResult:
     sheet = workbook[EXPECTED_SHEET]
     header_values = next(sheet.iter_rows(min_row=1, max_row=1, values_only=True))
     mapped_headers: dict[int, str] = {}
+    financial_institution_in_column: int | None = None
     for index, header in enumerate(header_values):
+        if normalize_header(header) in FINANCIAL_INSTITUTION_IN_COLUMNS:
+            financial_institution_in_column = index
+            continue
         mapped = map_header(header)
         if mapped:
             mapped_headers[index] = mapped
@@ -173,9 +180,26 @@ def parse_excel_with_metadata(content: bytes) -> WorkbookParseResult:
         )
 
     records: list[AccountRecord] = []
+    financial_institution_ins: set[str] = set()
     for row_number, row in enumerate(
         sheet.iter_rows(min_row=2, values_only=True), start=2
     ):
+        if (
+            financial_institution_in_column is not None
+            and financial_institution_in_column < len(row)
+        ):
+            raw_financial_institution_in = _text(
+                row[financial_institution_in_column]
+            )
+            if raw_financial_institution_in:
+                financial_institution_ins.add(
+                    normalize_financial_institution_in(
+                        raw_financial_institution_in,
+                        source=(
+                            "Uploaded workbook financial institution IN"
+                        ),
+                    )
+                )
         values = {
             field: row[index] if index < len(row) else None
             for index, field in mapped_headers.items()
@@ -245,9 +269,17 @@ def parse_excel_with_metadata(content: bytes) -> WorkbookParseResult:
                 account_balance=_text(values["account_balance"]),
             )
         )
+    if len(financial_institution_ins) > 1:
+        raise ValueError(
+            "Uploaded workbook contains multiple financial institution IN "
+            "values. Use one consistent value for the complete report."
+        )
     return WorkbookParseResult(
         records=records,
         status_mapping=status_mapping_info(mapped_headers, header_values),
+        financial_institution_in=next(
+            iter(financial_institution_ins), None
+        ),
     )
 
 
